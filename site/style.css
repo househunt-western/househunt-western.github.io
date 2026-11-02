@@ -397,7 +397,8 @@ dialog.sheet::backdrop { background: rgba(0, 0, 0, 0.45); }
 .head-tools { display: flex; gap: 8px; align-items: center; }
 .view-toggle { display: flex; gap: 4px; }
 .view-toggle .pill { padding: 5px 12px; font-size: 13px; }
-.map { height: min(62vh, 520px); border-radius: var(--radius); overflow: hidden; margin-top: 8px; background: var(--bg-2); }
+/* isolation keeps Leaflet's own z-indexes (400+) inside the map, under the tab bar and overlays */
+.map { height: min(62vh, 520px); border-radius: var(--radius); overflow: hidden; margin-top: 8px; background: var(--bg-2); isolation: isolate; }
 .map-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 10px 0 2px; font-size: 12px; color: var(--text-2); }
 .map-key { display: inline-flex; align-items: center; gap: 6px; }
 .map-key .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
