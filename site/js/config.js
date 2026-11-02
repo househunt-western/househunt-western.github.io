@@ -1,7 +1,7 @@
 // Edit this file to set up your group.
 export const CONFIG = {
   // First names only. These become the "Who are you?" buttons.
-  members: ["Paxton", "Charlie", "Xavier", "Jack", "Tyler"],
+  members: ["Anna", "Julie", "Piper", "Lilly", "Nicole"],
   defaultBudget: 1200,
   // Where the scraper's listings are, tried in order. Falls back to sample data if none load.
   dataUrls: ["listings.json", "../data/listings.json"],
