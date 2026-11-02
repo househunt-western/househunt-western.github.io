@@ -34,6 +34,11 @@
   "lng": -81.257887,
   "precision": "house"
  },
+ "1075 adelaide st north": {
+  "lat": 43.0106769,
+  "lng": -81.2425354,
+  "precision": "house"
+ },
  "1083 western rd.": {
   "lat": 43.0002043,
   "lng": -81.2765063,
@@ -57,6 +62,11 @@
  "1099 western rd.": {
   "lat": 43.0004752,
   "lng": -81.2765324,
+  "precision": "house"
+ },
+ "11 fernley": {
+  "lat": 42.9919046,
+  "lng": -81.2658568,
   "precision": "house"
  },
  "11 st george street": {
@@ -519,6 +529,11 @@
   "lng": -81.256522,
   "precision": "house"
  },
+ "250 cheapside": {
+  "lat": 43.0019518,
+  "lng": -81.255901,
+  "precision": "house"
+ },
  "255 sydenham st": {
   "lat": 42.9968365,
   "lng": -81.2523967,
@@ -549,6 +564,16 @@
  "285 steele street": {
   "lat": 43.0093087,
   "lng": -81.2565511,
+  "precision": "house"
+ },
+ "289 pall mall street": {
+  "lat": 42.9930597,
+  "lng": -81.248949,
+  "precision": "house"
+ },
+ "299 wolfe street": {
+  "lat": 42.9901773,
+  "lng": -81.246773,
   "precision": "house"
  },
  "3 stirrup court": null,
@@ -705,6 +730,11 @@
  "557 ridout street north": {
   "lat": 42.9867892,
   "lng": -81.2556475,
+  "precision": "house"
+ },
+ "56 essex st": {
+  "lat": 42.9944686,
+  "lng": -81.2701701,
   "precision": "house"
  },
  "566 talbot street": {
