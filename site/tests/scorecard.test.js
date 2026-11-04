@@ -150,7 +150,8 @@ function fakeSupabase(handlers) {
     if (out instanceof Error) return { ok: false, status: 404, text: async () => JSON.stringify({ message: out.message }) };
     return { ok: true, status: 200, text: async () => (out === undefined ? "" : JSON.stringify(out)) };
   };
-  const store = new SupabaseGroupStore({ url: "https://x.supabase.co", anonKey: "k", code: "our-code", fetch, env: {} });
+  const auth = { token: async () => "user-jwt" };
+  const store = new SupabaseGroupStore({ url: "https://x.supabase.co", anonKey: "k", group: "our-group", auth, fetch, env: {} });
   return { store, calls };
 }
 
@@ -163,19 +164,20 @@ test("group store: sends the cleaned card, shows it at once, and puts it back if
   await store.load();
   const pending = store.saveScorecard("western_och:1", "Paxton", { ratings: { kitchen: 4, sauna: 5 }, note: " ok " });
   assert.deepEqual(store.state.scorecards["western_och:1"].Paxton.ratings, { kitchen: 4 }); // before the server answers
+  await new Promise((r) => setTimeout(r, 0)); // the call goes out once the sign-in token is ready
   release(true);
   assert.equal(await pending, true);
   assert.deepEqual(calls[1], {
     name: "group_save_scorecard",
     body: {
-      p_code: "our-code", p_key: "western_och:1", p_member: "Paxton",
+      p_group: "our-group", p_key: "western_och:1",
       p_card: { ratings: { kitchen: 4 }, lease_ok: null, deposit_asked: null, note: "ok" },
     },
   });
 
   const failing = fakeSupabase({
     get_group_state: { members: ["Paxton"], votes: {}, notes: {}, status: {}, budgets: {} }, // a database from before scorecards
-    group_save_scorecard: new Error("Could not find the function public.group_save_scorecard(p_card, p_code, p_key, p_member) in the schema cache"),
+    group_save_scorecard: new Error("Could not find the function public.group_save_scorecard(p_card, p_group, p_key) in the schema cache"),
   });
   await failing.store.load();
   assert.deepEqual(failing.store.state.scorecards, {});

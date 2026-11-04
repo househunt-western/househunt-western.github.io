@@ -2,6 +2,9 @@ import { CONFIG } from "./config.js";
 import { LocalGroupStore, prefs, visitBaseline } from "./group.js";
 import { Voting } from "./voting.js";
 import { GroupError, SupabaseGroupStore } from "./supabase-store.js";
+import { Auth, MIN_PASSWORD, cleanEmail } from "./auth.js";
+import { captureInstallPrompt, currentInstallState, promptInstall } from "./install.js";
+import { authHtml, forgotHtml, installHtml, iosStepsHtml, joinHtml, problemHtml, startHtml } from "./onboard-ui.js";
 import {
   DEFAULT_FILTERS, STATUSES, budgetLabel, STATUS_LABELS, deckFor, filterListings, groupSummary, initials, isMatch,
   money, parseInviteInput, parseJoinHash, shareText, shortlist, sortListings, statusOf, votesFor, walkLabel, formatDate, costOf,
@@ -20,8 +23,12 @@ import {
 } from "./ui.js";
 
 const $ = (id) => document.getElementById(id);
-let members = CONFIG.members; // replaced by the group's own list once connected to Supabase
-let store; // SupabaseGroupStore when connected, LocalGroupStore (this phone only) otherwise
+// Chrome offers its one-tap install early, before the app has even loaded: catch it straight away
+const installPrompt = captureInstallPrompt(window);
+const PRACTICE_NAME = "You"; // practice mode (no group database) has one person: you
+let members = [PRACTICE_NAME]; // the group's own list once signed in
+let auth = null; // Auth (auth.js) when the group database is set up
+let store; // SupabaseGroupStore when signed in to a group, LocalGroupStore (this phone only) otherwise
 let voting; // casts and undoes my votes on whichever store is in use
 
 const app = {
@@ -29,7 +36,8 @@ const app = {
   byKey: {},
   sample: false,
   lastRun: null,
-  me: prefs.get("me"),
+  me: null, // my name in this group, from the server (so nobody can vote as someone else)
+  groups: null, // my groups, for the Group tab's switcher (loaded when the tab opens)
   filters: { ...DEFAULT_FILTERS, ...prefs.get("filters", {}) },
   sort: prefs.get("sort", "cost"),
   homeView: prefs.get("homeView", "list"), // Home shows the listings as a "list" or a "map"
@@ -113,6 +121,7 @@ function setTab(tab) {
 }
 
 function render() {
+  if (!store) return; // still signing in
   renderMe();
   renderBadge();
   if (app.tab === "discover") renderDiscover();
@@ -123,7 +132,7 @@ function render() {
 
 function renderMe() {
   $("me-avatar").textContent = app.me ? initials(app.me) : "?";
-  $("me-name").textContent = app.me || "Who are you?";
+  $("me-name").textContent = app.me || "";
 }
 
 function renderBadge() {
@@ -220,11 +229,6 @@ function toggleOrder() {
 
 function renderDiscover() {
   filterPills("discover-pills");
-  if (!app.me) {
-    deck.show([]);
-    $("deck").innerHTML = '<div class="empty"><span class="serif">Pick your name</span>Then start swiping.</div>';
-    return;
-  }
   const ready = readiness(store.state, members);
   const suggested = app.order === "suggested" && ready.ready;
   $("discover-pills").firstElementChild.insertAdjacentHTML("afterend", orderPill(ready, suggested));
@@ -253,7 +257,7 @@ function renderDiscover() {
 }
 
 async function castVote(l, vote, { fromDeck = false } = {}) {
-  if (!app.me) return askWho();
+  if (!app.me) return;
   // If saving fails, this throws and the error handler below shows a message
   const result = await voting.cast(l.key, app.me, vote);
   if (!result) return; // this house's vote is still saving
@@ -404,49 +408,152 @@ function budgetReality() {
 }
 
 function renderGroup() {
-  const code = prefs.get("code");
-  const invite = code ? `${location.origin}${location.pathname}#join=${code}` : null;
   const rejected = app.listings.filter((l) => statusOf(store.state, l.key) === "rejected");
   const voteCount = (m) => Object.values(store.state.votes).filter((v) => v[m]).length;
+  const roster = store.shared && store.roster.length ? store.roster : members.map((name) => ({ name, claimed: true }));
+  const others = (app.groups || []).filter((g) => g.id !== store.group);
   $("group").innerHTML = `
-    ${store.shared ? "" : '<div class="banner"><b>Practice mode.</b> Votes, notes and budgets are saved on this phone only. Once the group database (Supabase) is connected, everyone sees each other\'s votes.</div>'}
+    ${store.shared ? "" : '<div class="banner"><b>Practice mode.</b> Votes, notes and budgets are saved on this phone only, because the group database (Supabase) isn\'t set up in config.js.</div>'}
+    ${store.shared ? `<div class="group-title"><h2 class="serif">${esc(store.info.name)}</h2><span class="muted small">${members.length} of 5 people</span></div>` : ""}
     <div class="section-head" style="margin-top:0"><h2>Members</h2><span class="muted small">Max budget / person</span></div>
     <div>
-      ${members.map((m) => {
+      ${roster.map(({ name: m, claimed }) => {
         const b = store.state.budgets[m];
         const mine = m === app.me;
+        const votes = voteCount(m);
+        const sub = claimed
+          ? `${votes} vote${votes === 1 ? "" : "s"}`
+          : `Invited, hasn't joined yet${votes ? ` · ${votes} vote${votes === 1 ? "" : "s"}` : ""}`;
         return `<div class="group-row">
-          <span class="avatar">${esc(initials(m))}</span>
-          <span style="flex:1"><span style="display:block;font-weight:500">${esc(m)}${mine ? ' <span class="faint small">(you)</span>' : ""}</span><span class="muted tiny">${voteCount(m)} vote${voteCount(m) === 1 ? "" : "s"}</span></span>
+          <span class="avatar ${claimed ? "" : "pending"}">${esc(initials(m))}</span>
+          <span style="flex:1;min-width:0"><span style="display:block;font-weight:500">${esc(m)}${mine ? ' <span class="faint small">(you)</span>' : ""}</span><span class="muted tiny">${esc(sub)}</span></span>
           ${mine
             ? `<form id="budget-form" style="text-align:right"><input class="budget-input" id="budget-input" inputmode="numeric" value="${b ?? ""}" placeholder="${CONFIG.defaultBudget}" aria-label="Your max budget per person"><div class="field-error" id="budget-error"></div></form>`
             : `<span class="serif" style="font-size:22px">${b ? money(b) : '<span class="faint small" style="font-family:var(--sans)">Not set</span>'}</span>`}
         </div>`;
       }).join("")}
     </div>
+    ${store.shared ? `
+      ${members.length < 5 ? '<p class="muted small">Send the invite link to the rest of your group. Each of you signs up and joins with your own first name.</p>' : ""}
+      <button class="btn btn-ink wide" type="button" id="share-invite"><i class="ti ti-share" aria-hidden="true"></i> Share invite link</button>
+      <div class="invite" style="margin-top:10px"><code>${esc(inviteUrl())}</code><button class="pill" type="button" id="copy-invite">Copy</button></div>` : ""}
+
     ${budgetReality()}
 
     ${alertsSection()}
 
-    <div class="section-head"><h2>Invite your group</h2></div>
-    ${invite
-      ? `<div class="invite"><code>${esc(invite)}</code><button class="pill" type="button" id="copy-invite">Copy</button></div>
-         <p class="muted small">Paste this in your group chat. Tapping it opens the app and joins your group.</p>`
-      : '<p class="muted small">Your invite link appears here once the group code is set up (it comes with the database step).</p>'}
-
-    <div class="section-head"><h2>${code ? "Switch groups" : "Join with a link"}</h2></div>
-    <p class="muted small" style="margin-top:4px">${code ? "Paste another group's invite link to switch." : "Paste the invite link from your group chat."} On iPhone, if you added this to your Home Screen, tapping the link opens Safari instead, so paste it here.</p>
-    ${joinForm()}
-
     <div class="section-head"><h2>Add to Home Screen</h2></div>
-    <p class="muted small" style="margin-top:4px">On iPhone: tap <i class="ti ti-share" aria-hidden="true"></i> Share in Safari, then <b>Add to Home Screen</b>. It opens like an app, and it's the only way alerts reach an iPhone.</p>
+    ${homeScreenHelp()}
+
+    ${store.shared ? `
+      <div class="section-head"><h2>Your groups</h2></div>
+      ${others.length ? `<div class="gate-groups">${others.map((g) => `<button class="gate-group" type="button" data-switch-group="${esc(g.id)}">
+          <span><span class="gate-group-name">${esc(g.name)}</span><span class="muted small">You're ${esc(g.me)} · ${Number(g.size) || 1} ${Number(g.size) === 1 ? "person" : "people"}</span></span>
+          <span class="pill">Switch</span></button>`).join("")}</div>` : '<p class="muted small" style="margin-top:4px">This is your only group. You can be in more than one, for example with different friends.</p>'}
+      <button class="btn wide" type="button" id="start-another" style="margin-top:10px"><i class="ti ti-plus" aria-hidden="true"></i> Start another group</button>
+      <p class="muted small">Got an invite to another group? Paste the link. On iPhone, tapping a link opens Safari instead of the Home Screen app, so paste it here.</p>
+      ${joinForm()}` : ""}
 
     <div class="section-head"><h2>Hidden houses</h2><span class="muted small">${rejected.length}</span></div>
     <div class="list">${rejected.map((l) => listRow(l, store.state, { members })).join("") || '<p class="muted small">Houses marked "Rejected" go here.</p>'}</div>
 
     <div class="section-head"><h2>Data</h2></div>
     <p class="muted small" style="margin-top:4px">${app.sample ? "Showing sample houses until the scraper's first run." : `Last updated ${esc(new Date(app.lastRun).toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short" }))}.`}</p>
-    <button class="btn" type="button" id="switch-person" style="margin-top:8px">Switch person</button>`;
+
+    ${store.shared ? `
+      <div class="section-head"><h2>Account</h2></div>
+      <p class="muted small" style="margin-top:4px">Signed in as ${esc(auth.email || "you")}.</p>
+      <div class="row-btns">
+        <button class="btn" type="button" id="leave-group">Leave group</button>
+        <button class="btn" type="button" id="sign-out">Sign out</button>
+      </div>` : ""}`;
+  if (store.shared && !app.groups) loadGroupExtras();
+}
+
+const inviteUrl = () => `${location.origin}${location.pathname}#join=${store.info.invite}`;
+
+// My other groups and who has joined, fetched once when the Group tab first opens.
+async function loadGroupExtras() {
+  app.groups = [];
+  try {
+    [app.groups] = await Promise.all([directory().myGroups(), store.loadRoster()]);
+  } catch (err) {
+    console.warn("Couldn't load your groups", err); // the tab works without them
+  }
+  if (app.tab === "group") renderGroup();
+}
+
+function homeScreenHelp() {
+  const state = currentInstallState(installPrompt);
+  if (state === "installed") return '<p class="muted small" style="margin-top:4px"><i class="ti ti-circle-check" aria-hidden="true"></i> You\'re using the Home Screen app.</p>';
+  if (state === "android-prompt") {
+    return `<p class="muted small" style="margin-top:4px">It opens like an app, and alerts come straight to your phone.</p>
+      <button class="btn btn-ink" type="button" id="install-app"><i class="ti ti-download" aria-hidden="true"></i> Install House Hunt</button>`;
+  }
+  if (state === "ios-safari") return `<p class="muted small" style="margin-top:4px">It opens like an app, and it's the only way alerts reach an iPhone.</p>${iosStepsHtml()}`;
+  return '<p class="muted small" style="margin-top:4px">On iPhone: open this page in Safari, tap <i class="ti ti-share" aria-hidden="true"></i> Share (or the ⋯ menu, then Share), then <b>Add to Home Screen</b>. On Android: in Chrome, tap ⋮, then <b>Add to Home screen</b>.</p>';
+}
+
+async function shareInvite() {
+  const url = inviteUrl();
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "House Hunt", text: `Join ${store.info.name} on House Hunt, so we can pick a house together:`, url });
+      return;
+    } catch (err) {
+      if (err?.name === "AbortError") return; // they closed the share sheet
+    }
+  }
+  copyInvite();
+}
+
+async function copyInvite() {
+  try {
+    await navigator.clipboard.writeText(inviteUrl());
+    toast("Invite link copied. Paste it in your group chat");
+  } catch {
+    toast("Couldn't copy. Long-press the link instead");
+  }
+}
+
+async function leaveGroup() {
+  const ok = confirm(`Leave ${store.info.name}? Your votes, notes and scorecards in it are deleted, and you'd need the invite link to come back.`);
+  if (!ok) return;
+  try {
+    await store.leaveGroup();
+  } catch (err) {
+    return toast(err.message);
+  }
+  prefs.set("group", null);
+  location.reload();
+}
+
+async function signOut() {
+  prefs.set("group", null); // the next person to sign in on this phone has their own groups
+  await auth.signOut(); // auth.onChange reloads the page, back to the sign-in screen
+  return new Promise(() => {}); // nothing else happens on this page
+}
+
+async function installFromButton() {
+  if (await promptInstall(installPrompt)) toast("Installed. Open House Hunt from your Home Screen");
+  render();
+}
+
+// Start another group (from the Group tab). It opens straight away.
+async function startAnother(button) {
+  button.disabled = true;
+  let groups = app.groups || [];
+  try {
+    groups = await directory().myGroups();
+  } catch {
+    // the picker just shows fewer groups
+  }
+  button.disabled = false;
+  const picked = await startScreen(directory(), groups, { canCancel: true });
+  if (picked.invite) prefs.set("invite", picked.invite);
+  else if (picked.id && picked.id !== store.group) prefs.set("group", picked.id);
+  else return hideGate();
+  location.reload();
 }
 
 // ---------- phone alerts ----------
@@ -482,7 +589,7 @@ async function syncAlerts() {
   try {
     const sub = await currentSubscription({ win: window, key: CONFIG.vapidPublicKey });
     app.alertsOn = Boolean(sub);
-    const saved = sub && `${sub.endpoint}|${app.me}`;
+    const saved = sub && `${sub.endpoint}|${store.group}|${app.me}`;
     if (sub && store.shared && app.me && prefs.get("alertsSaved") !== saved) {
       await store.savePushSub(app.me, sub.toJSON());
       prefs.set("alertsSaved", saved);
@@ -504,7 +611,7 @@ async function alertsOn() {
     });
     app.alertsOn = result.ok;
     if (result.ok) {
-      prefs.set("alertsSaved", `${result.sub.endpoint}|${app.me}`);
+      prefs.set("alertsSaved", `${result.sub.endpoint}|${store.group}|${app.me}`);
       toast("Alerts on. You'll hear about new houses here");
     } else if (result.permission === "denied") {
       toast("Alerts are blocked. See the steps on this page");
@@ -692,7 +799,7 @@ async function onScorecardClick(e) {
   const t = e.target.closest("[data-score],[data-check],[data-score-open],[data-score-cancel],[data-score-save]");
   const l = app.byKey[app.detailKey];
   if (!t || !l) return;
-  if (!app.me) return askWho();
+  if (!app.me) return;
   if (t.dataset.scoreSave !== undefined) return saveMyScorecard(l, t);
   if (t.dataset.scoreOpen !== undefined) app.scoreOpen = l.key;
   else if (t.dataset.scoreCancel !== undefined) {
@@ -818,40 +925,31 @@ function setFilters(patch) {
   render();
 }
 
-// ---------- who are you / join ----------
+// ---------- invite links ----------
 
-function askWho() {
-  $("name-grid").innerHTML = members.map((m) =>
-    `<button class="btn ${m === app.me ? "btn-ink" : ""}" type="button" data-me="${esc(m)}">${esc(m)}</button>`).join("");
-  $("onboard-note").textContent = prefs.get("code") ? "You're joining your group." : "";
-  $("onboard").hidden = false;
-}
-
-function setMe(name) {
-  app.me = name;
-  prefs.set("me", name);
-  voting.reset();
-  $("onboard").hidden = true;
-  deck.show([]);
-  render();
-  syncAlerts();
-}
-
-function handleJoinLink() {
-  const code = parseJoinHash(location.hash);
-  if (!code) return false;
-  prefs.set("code", code);
-  history.replaceState(null, "", location.pathname + location.search); // hide the code from the address bar
-  toast("Joined the group");
+// Keep the invite from a #join= link (or the old single-group code) until it's been used, even
+// through signing up. Returns true if there was one.
+function rememberInvite() {
+  const fromHash = parseJoinHash(location.hash);
+  const old = prefs.get("code"); // before accounts: Anna's group's code, which is now its invite
+  if (old) prefs.set("code", null);
+  const invite = fromHash || old;
+  if (!invite) return false;
+  prefs.set("invite", invite);
+  // On iPhone the link stays in the address bar until they've joined, so Add to Home Screen
+  // keeps it and the Home Screen app knows which group to open.
+  if (currentInstallState(installPrompt) !== "ios-safari") stripJoinHash();
   return true;
 }
 
-// An iPhone Home Screen app keeps its own storage, separate from Safari, and opens without the
-// #join= part. Tapping the invite link in the group chat opens Safari, so the app can never join
-// that way. Pasting the link (or just the code) here works everywhere.
+function stripJoinHash() {
+  if (parseJoinHash(location.hash)) history.replaceState(null, "", location.pathname + location.search);
+}
+
+// Paste an invite link to join another group (Group tab). The join screen takes it from there.
 function joinForm() {
   return `<form class="join-form" data-join-form>
-      <input name="invite" placeholder="Paste invite link" aria-label="Invite link or code" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go">
+      <input name="invite" placeholder="Paste invite link" aria-label="Invite link" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go">
       <button class="btn btn-ink" type="submit" style="padding:9px 16px">Join</button>
     </form>
     <div class="field-error" data-join-error></div>`;
@@ -859,24 +957,267 @@ function joinForm() {
 
 async function joinWithInvite(form) {
   const error = form.parentElement.querySelector("[data-join-error]");
-  const code = parseInviteInput(form.elements.invite.value);
-  if (!code) {
+  const invite = parseInviteInput(form.elements.invite.value);
+  if (!invite) {
     error.textContent = "That's not an invite link. Copy the whole link from your group chat (it ends in #join=…).";
     return;
   }
-  // Check the code before saving it, so a typo can't knock you out of a group you're already in
+  // Check it first, so a typo shows here instead of on a screen you'd have to back out of
   const button = form.querySelector("button");
   button.disabled = true;
   try {
-    const sb = CONFIG.supabase;
-    if (sb?.url && sb?.anonKey) await new SupabaseGroupStore({ ...sb, code }).load();
+    if (!(await directory().groupPreview(invite))) throw new GroupError("bad invite");
   } catch (err) {
-    error.textContent = err.message; // e.g. "This invite link isn't valid. Ask your group for a new one."
+    error.textContent = err.message;
     button.disabled = false;
     return;
   }
-  prefs.set("code", code);
+  prefs.set("invite", invite);
   location.reload();
+}
+
+// ---------- before the app: sign in, pick a group, Home Screen ----------
+
+// A store for the calls that don't need a group yet (my groups, invites, starting one)
+const directory = () => new SupabaseGroupStore({ ...CONFIG.supabase, auth });
+
+let gateWaiter = null;
+
+function showGate(html) {
+  $("gate-inner").innerHTML = html;
+  $("gate").hidden = false;
+  $("gate").scrollTop = 0;
+}
+
+function hideGate() {
+  $("gate").hidden = true;
+  gateWaiter = null;
+}
+
+// The next thing done on the gate screen: a form sent ({ form, data }) or a button tapped
+// ({ action } for data-gate, { claim } for a name, { group } for one of my groups).
+function nextAction() {
+  return new Promise((resolve) => (gateWaiter = resolve));
+}
+
+function bindGate() {
+  const send = (a) => {
+    const fn = gateWaiter;
+    gateWaiter = null;
+    fn?.(a);
+  };
+  $("gate").addEventListener("submit", (e) => {
+    e.preventDefault();
+    send({ form: e.target.id, data: Object.fromEntries(new FormData(e.target)) });
+  });
+  $("gate").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-gate],[data-claim],[data-pick-group]");
+    if (b) send({ action: b.dataset.gate, claim: b.dataset.claim, group: b.dataset.pickGroup });
+  });
+  $("gate").addEventListener("input", (e) => {
+    const box = e.target.closest("form")?.parentElement;
+    for (const el of box?.querySelectorAll("[data-gate-error],[data-paste-error]") || []) el.textContent = "";
+  });
+}
+
+// Greys out the screen's buttons while a request is out, so a double tap can't send it twice.
+async function busy(work) {
+  const buttons = [...$("gate").querySelectorAll("button")];
+  buttons.forEach((b) => (b.disabled = true));
+  try {
+    return await work();
+  } finally {
+    buttons.forEach((b) => (b.disabled = false));
+  }
+}
+
+// Sign up, sign in, or reset a forgotten password. Resolves once signed in.
+async function signInScreen(dir, invite) {
+  const preview = invite ? await dir.groupPreview(invite).catch(() => null) : null;
+  let email = prefs.get("email") || "";
+  // Returning (this phone signed in before, or it's the Home Screen app): sign in. New: sign up.
+  let mode = email || currentInstallState(installPrompt) === "installed" ? "signin" : "signup";
+  let message = "";
+  let verified = false; // the reset code worked; only the new password is left to save
+  for (;;) {
+    if (mode === "signup" || mode === "signin") showGate(authHtml({ mode, preview, email, message }));
+    else showGate(forgotHtml({ step: mode === "forgot" ? "email" : "code", email, message }));
+    const a = await nextAction();
+    message = "";
+    if (a.action === "resend") {
+      try {
+        await busy(() => auth.sendResetCode(email));
+        toast("New code sent");
+      } catch (err) {
+        message = err.message;
+      }
+      continue;
+    }
+    if (a.action) {
+      mode = a.action; // signin, signup or forgot
+      continue;
+    }
+    email = cleanEmail(a.data.email ?? email);
+    const password = a.data.password ?? "";
+    if (!email) {
+      message = "Type your email.";
+      continue;
+    }
+    if (a.form !== "gate-forgot-email" && password.length < MIN_PASSWORD) {
+      message = mode === "signin" && !password ? "Type your password." : `Use at least ${MIN_PASSWORD} characters for your password.`;
+      continue;
+    }
+    try {
+      await busy(async () => {
+        if (a.form === "gate-auth" && mode === "signup") await auth.signUp(email, password);
+        else if (a.form === "gate-auth") await auth.signIn(email, password);
+        else if (a.form === "gate-forgot-email") await auth.sendResetCode(email);
+        else {
+          if (!verified) await auth.verifyResetCode(email, a.data.code);
+          verified = true;
+          await auth.setPassword(password);
+        }
+      });
+    } catch (err) {
+      message = err.message;
+      continue;
+    }
+    prefs.set("email", email);
+    if (a.form === "gate-forgot-email") {
+      mode = "code";
+      continue;
+    }
+    if (a.form === "gate-forgot-code") toast("Password changed");
+    return;
+  }
+}
+
+// Joining from an invite. Resolves { id } once in the group, or { id: null } to skip it.
+async function joinScreen(dir, invite, groups) {
+  const preview = await dir.groupPreview(invite);
+  if (!preview) return { id: null, message: "That invite link isn't valid any more. Ask your group for a new one." };
+  // Opened the link again after joining: just open the group
+  for (const g of groups.filter((x) => x.name === preview.name)) {
+    const probe = new SupabaseGroupStore({ ...CONFIG.supabase, auth, group: g.id });
+    if (await probe.load().then(() => probe.info.invite === invite, () => false)) return { id: g.id };
+  }
+  let message = "";
+  for (;;) {
+    showGate(joinHtml({ preview, message }));
+    const a = await nextAction();
+    if (a.action === "skip-invite") return { id: null, startNew: preview.full };
+    const name = (a.claim ?? a.data?.name ?? "").trim();
+    if (!name) {
+      message = "Type your first name.";
+      continue;
+    }
+    try {
+      return { id: await busy(() => dir.joinGroup(invite, name)) };
+    } catch (err) {
+      message = err.message;
+    }
+  }
+}
+
+// Pick one of my groups, start one, or paste an invite. Resolves { id }, { invite }, or { id: null } (cancelled).
+async function startScreen(dir, groups, { canCancel = false, pasteMessage = "" } = {}) {
+  let message = "";
+  for (;;) {
+    showGate(startHtml({ groups, message, pasteMessage, canCancel }));
+    const a = await nextAction();
+    message = pasteMessage = "";
+    if (a.group) return { id: a.group };
+    if (a.action === "cancel") return { id: null };
+    if (a.action === "signout") return signOut();
+    if (a.form === "gate-paste") {
+      const invite = parseInviteInput(a.data.invite);
+      if (invite) return { invite };
+      pasteMessage = "That's not an invite link. Copy the whole link from your group chat (it ends in #join=…).";
+      continue;
+    }
+    const group = (a.data?.group || "").trim();
+    const name = (a.data?.name || "").trim();
+    if (!group || !name) {
+      message = !group ? "Give your group a name." : "Type your first name.";
+      continue;
+    }
+    try {
+      return { id: (await busy(() => dir.createGroup(group, name))).id };
+    } catch (err) {
+      message = err.message;
+    }
+  }
+}
+
+// Signed in and into a group, by the shortest way: the group this phone used last, an invite
+// waiting to be used, my only group, or the picker.
+async function openGroup(shared) {
+  for (;;) {
+    try {
+      if (!auth.signedIn) await signInScreen(shared, prefs.get("invite"));
+      let invite = prefs.get("invite");
+      const last = prefs.get("group");
+      if (last && !invite) {
+        shared.group = last;
+        try {
+          await shared.load();
+          if (shared.info.me) return;
+        } catch (err) {
+          if (!/not in this group/i.test(err.raw || "")) throw err;
+        }
+      }
+      const groups = await shared.myGroups();
+      let id = null;
+      let pasteMessage = "";
+      let pick = false; // show the picker even with one group
+      while (!id) {
+        if (invite) {
+          const joined = await joinScreen(shared, invite, groups);
+          prefs.set("invite", null);
+          stripJoinHash();
+          invite = null;
+          id = joined.id;
+          pasteMessage = joined.message || "";
+          pick = Boolean(joined.startNew || joined.message);
+        } else if (groups.length === 1 && !pick) {
+          id = groups[0].id;
+        } else {
+          const picked = await startScreen(shared, groups, { pasteMessage });
+          pasteMessage = "";
+          invite = picked.invite || null;
+          id = picked.id || null;
+        }
+      }
+      shared.group = id;
+      prefs.set("group", id);
+      await shared.load();
+      return;
+    } catch (err) {
+      if (/sign in first|jwt/i.test(err.raw || "")) {
+        await auth.signOut(); // the sign-in ran out: sign in again
+        continue;
+      }
+      console.error(err);
+      showGate(problemHtml(err.message));
+      if ((await nextAction()).action === "signout") return signOut();
+    }
+  }
+}
+
+// On a phone browser, once: offer the Home Screen. Android installs in one tap; iPhone gets the steps.
+async function installStep() {
+  const state = currentInstallState(installPrompt);
+  if (prefs.get("installStep") === "done" || (state !== "ios-safari" && state !== "android-prompt")) return;
+  showGate(installHtml(state));
+  for (;;) {
+    const a = await nextAction();
+    if (a.action === "install") {
+      if (await promptInstall(installPrompt)) toast("Installed. Next time, open House Hunt from your Home Screen");
+      break;
+    }
+    if (a.action === "skip-install") break;
+  }
+  prefs.set("installStep", "done");
 }
 
 // ---------- events ----------
@@ -888,7 +1229,7 @@ function bindEvents() {
   });
 
   document.addEventListener("click", (e) => {
-    const t = e.target.closest("[data-open],[data-share],[data-filters],[data-order],[data-tab-go],[data-scroll],[data-close],[data-me],[data-view]");
+    const t = e.target.closest("[data-open],[data-share],[data-filters],[data-order],[data-tab-go],[data-scroll],[data-close],[data-view]");
     if (!t) return;
     if (t.dataset.open !== undefined) openDetail(t.dataset.open);
     else if (t.dataset.view) setHomeView(t.dataset.view);
@@ -898,14 +1239,11 @@ function bindEvents() {
     else if (t.dataset.tabGo) setTab(t.dataset.tabGo);
     else if (t.dataset.scroll) $(t.dataset.scroll).scrollIntoView({ behavior: "smooth" });
     else if (t.dataset.close !== undefined) t.closest("dialog")?.close();
-    else if (t.dataset.me !== undefined) setMe(t.dataset.me);
   });
 
   // A join link opened while the app is already open only changes the #part, without reloading
   window.addEventListener("hashchange", () => {
-    if (!handleJoinLink()) return;
-    if (CONFIG.supabase) location.reload(); // reconnect with the new group code
-    else render();
+    if (rememberInvite()) location.reload(); // the join screen comes up on the way back in
   });
 
   // Saving to the group failed (offline, bad link...): explain, and redraw with what's really saved.
@@ -917,7 +1255,7 @@ function bindEvents() {
     render();
   });
 
-  $("me-chip").onclick = askWho;
+  $("me-chip").onclick = () => setTab("group");
   $("btn-like").onclick = () => deck.swipe("like");
   $("btn-pass").onclick = () => deck.swipe("pass");
   $("btn-info").onclick = () => deck.flip();
@@ -925,7 +1263,7 @@ function bindEvents() {
   $("match-keep").onclick = () => ($("match").hidden = true);
 
   document.addEventListener("keydown", (e) => {
-    if (app.tab !== "discover" || document.querySelector("dialog[open]") || !$("onboard").hidden) return;
+    if (app.tab !== "discover" || document.querySelector("dialog[open]") || !$("gate").hidden) return;
     if (e.target.closest("input, textarea, select")) return;
     if (e.key === "ArrowRight") deck.swipe("like");
     else if (e.key === "ArrowLeft") deck.swipe("pass");
@@ -946,14 +1284,14 @@ function bindEvents() {
     const l = app.byKey[app.detailKey];
     if (!l) return;
     if (v) {
-      if (!app.me) return askWho();
+      if (!app.me) return;
       const current = (store.state.votes[l.key] || {})[app.me];
       const next = current === v.dataset.vote ? null : v.dataset.vote; // tap again to clear
       if (next) await castVote(l, next);
       else { await store.vote(l.key, app.me, null); render(); }
       renderDetail();
     } else if (s) {
-      if (!app.me) return askWho();
+      if (!app.me) return;
       await store.setStatus(l.key, s.dataset.status, app.me);
       render();
       renderDetail();
@@ -962,7 +1300,7 @@ function bindEvents() {
   $("detail").addEventListener("submit", async (e) => {
     if (e.target.id !== "note-form") return;
     e.preventDefault();
-    if (!app.me) return askWho();
+    if (!app.me) return;
     const ok = await store.addNote(app.detailKey, app.me, $("note-input").value);
     if (!ok) {
       $("note-error").textContent = "Write something first.";
@@ -997,17 +1335,20 @@ function bindEvents() {
   $("group").addEventListener("change", (e) => {
     if (e.target.id === "budget-input") e.target.form.requestSubmit();
   });
-  $("group").addEventListener("click", async (e) => {
-    if (e.target.closest("#switch-person")) askWho();
-    if (e.target.closest("#alerts-on")) alertsOn();
-    if (e.target.closest("#alerts-off")) alertsOff();
-    if (e.target.closest("#copy-invite")) {
-      try {
-        await navigator.clipboard.writeText($("group").querySelector(".invite code").textContent);
-        toast("Invite link copied");
-      } catch {
-        toast("Couldn't copy. Long-press the link instead");
-      }
+  $("group").addEventListener("click", (e) => {
+    const t = e.target.closest("button");
+    if (!t) return;
+    if (t.id === "alerts-on") alertsOn();
+    else if (t.id === "alerts-off") alertsOff();
+    else if (t.id === "share-invite") shareInvite();
+    else if (t.id === "copy-invite") copyInvite();
+    else if (t.id === "install-app") installFromButton();
+    else if (t.id === "start-another") startAnother(t);
+    else if (t.id === "leave-group") leaveGroup();
+    else if (t.id === "sign-out") signOut();
+    else if (t.dataset.switchGroup) {
+      prefs.set("group", t.dataset.switchGroup);
+      location.reload();
     }
   });
 
@@ -1047,36 +1388,34 @@ function bindEvents() {
     });
   }
   bindViewing();
+  bindGate();
+  // Chrome's install offer can arrive after the Group tab is drawn
+  installPrompt.listeners.push(() => app.tab === "group" && store && renderGroup());
 }
 
 // ---------- start ----------
 
-// Shared group database if it's set up and this phone has the invite code; otherwise practice mode.
+// Signed in to a group through Supabase, or practice mode (this phone only) without it.
 async function connectStore() {
-  const code = prefs.get("code");
   const sb = CONFIG.supabase;
-  if (sb?.url && sb?.anonKey && code) {
-    const shared = new SupabaseGroupStore({ ...sb, code });
-    try {
-      await shared.load();
-      if (shared.members.length) members = shared.members;
-      shared.startPolling();
-      return shared;
-    } catch (err) {
-      // A bad code gets the paste box too, so a fresh link from the group can replace it
-      showGroupBanner(`${err.message} Votes are saved on this phone only for now.`, { join: /bad group code/i.test(err.raw || "") });
-    }
-  } else if (sb?.url && !code) {
-    showGroupBanner("To join your group, open the invite link from your group chat or paste it here. Until then, votes stay on this phone.", { join: true });
+  if (!sb?.url || !sb?.anonKey) {
+    const local = new LocalGroupStore();
+    await local.load();
+    app.me = PRACTICE_NAME;
+    hideGate();
+    return local;
   }
-  const local = new LocalGroupStore();
-  await local.load();
-  return local;
-}
-
-function showGroupBanner(text, { join = false } = {}) {
-  $("group-banner").innerHTML = `<div>${esc(text)}</div>${join ? joinForm() : ""}`;
-  $("group-banner").hidden = false;
+  auth = new Auth(sb);
+  // Signed out in another tab, or the sign-in couldn't be renewed: back to the sign-in screen
+  auth.onChange((signedIn) => !signedIn && location.reload());
+  const shared = new SupabaseGroupStore({ ...sb, auth });
+  await openGroup(shared);
+  await installStep();
+  hideGate();
+  shared.startPolling();
+  members = shared.members;
+  app.me = shared.info.me;
+  return shared;
 }
 
 // A tapped alert opens ?tab=shortlist or ?tab=discover. Take it, then tidy the address.
@@ -1091,14 +1430,19 @@ function handleTabLink() {
 }
 
 async function start() {
-  handleJoinLink();
+  rememberInvite();
   handleTabLink();
   bindEvents();
   // The service worker shows phone alerts (sw.js). It caches nothing, so it never serves stale pages.
   if (pushSupported(window)) navigator.serviceWorker.register("sw.js").catch((err) => console.warn("No service worker", err));
+  const listings = loadListings().catch((err) => ({ err })); // download while signing in
   store = await connectStore();
   voting = new Voting(store, () => members);
   store.onChange((state, info) => {
+    if (store.shared) {
+      members = store.members; // someone joined or left
+      app.me = store.info.me;
+    }
     if (info?.remote) render(); // someone else's change (another tab, or the group database)
     if (app.detailKey && $("detail-sheet").open) keepTyping($("detail"), renderDetail);
     if ($("compare-sheet").open) renderCompare();
@@ -1110,7 +1454,8 @@ async function start() {
   }
 
   try {
-    const { data, sample } = await loadListings();
+    const { data, sample, err } = await listings;
+    if (err) throw err;
     app.listings = data.listings.filter((l) => l && l.key);
     app.byKey = Object.fromEntries(app.listings.map((l) => [l.key, l]));
     // "New for me" = not here on my previous visit (tracked by house, so no date or time-zone mix-ups)
@@ -1128,7 +1473,6 @@ async function start() {
   }
 
   setTab(app.tab);
-  if (!app.me || !members.includes(app.me)) askWho();
   syncAlerts();
 }
 
