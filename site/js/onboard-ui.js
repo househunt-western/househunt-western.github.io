@@ -31,10 +31,16 @@ function inviteLine(preview) {
     </div>`;
 }
 
+// A group's name in a heading: kept on one line when short, allowed to wrap when long,
+// so a name like "Anna, Julie, Piper, Lilly & Nicole" doesn't run off a phone screen.
+function groupName(name) {
+  return name.length <= 18 ? `<span class="nowrap">${esc(name)}</span>` : esc(name);
+}
+
 // mode: "signup" or "signin". preview: what the invite link opens (or null).
 export function authHtml({ mode = "signup", preview = null, email = "", message = "" } = {}) {
   const signup = mode === "signup";
-  const title = preview ? `You're invited to <span class="nowrap">${esc(preview.name)}</span>` : signup ? "House Hunt" : "Welcome back";
+  const title = preview ? `You're invited to ${groupName(preview.name)}` : signup ? "House Hunt" : "Welcome back";
   const lead = preview
     ? (signup ? "Make an account to join. It takes a few seconds." : "Sign in to join.")
     : (signup ? "Find a student house with your friends. Make an account to start." : "Sign in to get back to your group.");
@@ -86,7 +92,7 @@ export function joinHtml({ preview, message = "" }) {
   const open = (preview.members || []).filter((m) => !m.claimed);
   const full = preview.full && !open.length;
   return `
-    <h2>Join <span class="nowrap">${esc(preview.name)}</span></h2>
+    <h2>Join ${groupName(preview.name)}</h2>
     ${inviteLine(preview)}
     ${full
       ? `<p class="muted">This group already has ${MAX_MEMBERS} people, the most a group can have. Ask them to make room, or start your own.</p>${error(message)}`

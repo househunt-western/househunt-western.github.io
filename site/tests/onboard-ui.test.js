@@ -69,3 +69,10 @@ test("the start screen lists my groups, or invites me to start one", () => {
   assert.match(some, /You're Anna · 5 people/);
   assert.match(some, /data-gate="cancel"/);
 });
+
+test("a long group name may wrap in the heading; a short one stays on one line", () => {
+  const long = authHtml({ preview: { name: "Anna, Julie, Piper, Lilly & Nicole", members: [], full: false } });
+  assert.match(long, /<h2>You're invited to Anna, Julie, Piper, Lilly &amp; Nicole<\/h2>/);
+  const short = authHtml({ preview: { name: "The House", members: [], full: false } });
+  assert.match(short, /<span class="nowrap">The House<\/span>/);
+});
