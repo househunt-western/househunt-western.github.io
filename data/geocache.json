@@ -149,6 +149,11 @@
   "lng": -81.2636402,
   "precision": "house"
  },
+ "125 mill st.": {
+  "lat": 42.9915385,
+  "lng": -81.2557806,
+  "precision": "house"
+ },
  "125 paul st main unit": null,
  "126 woodward": {
   "lat": 42.9876399,
@@ -330,6 +335,11 @@
  "165 wharncliffe road north": {
   "lat": 42.9884338,
   "lng": -81.262863,
+  "precision": "house"
+ },
+ "171 broughdale ave": {
+  "lat": 43.007293,
+  "lng": -81.26219,
   "precision": "house"
  },
  "172 john st": {
@@ -522,6 +532,11 @@
  "239 raymond": {
   "lat": 43.0129412,
   "lng": -81.2614741,
+  "precision": "house"
+ },
+ "242 bernard avenue": {
+  "lat": 43.012835,
+  "lng": -81.261301,
   "precision": "house"
  },
  "249 university cr": {
@@ -757,6 +772,11 @@
   "lng": -81.2957329,
   "precision": "house"
  },
+ "600 sarnia rd": {
+  "lat": 42.9928108,
+  "lng": -81.3074969,
+  "precision": "house"
+ },
  "616 waterloo street": {
   "lat": 42.9926235,
   "lng": -81.2458828,
@@ -837,6 +857,11 @@
   "lng": -81.2698652,
   "precision": "house"
  },
+ "787 richmond": {
+  "lat": 42.9966169,
+  "lng": -81.253966,
+  "precision": "house"
+ },
  "795 richmond st": {
   "lat": 42.996866,
   "lng": -81.2540904,
@@ -890,6 +915,11 @@
   "lng": -81.251569,
   "precision": "house"
  },
+ "95 edgar": {
+  "lat": 42.9971209,
+  "lng": -81.2825241,
+  "precision": "house"
+ },
  "96 doon drive": {
   "lat": 43.0228323,
   "lng": -81.2624381,
@@ -938,6 +968,11 @@
  "western road & sarnia road": {
   "lat": 43.0019212,
   "lng": -81.2772605,
+  "precision": "street"
+ },
+ "westview drive": {
+  "lat": 43.0060476,
+  "lng": -81.2660807,
   "precision": "street"
  },
  "wharncliffe rd & oxford st": null,
