@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       who:
-        description: "Whose phones? A name from the group, or everyone"
+        description: "Whose phones? A name from any group (everyone with that name), or everyone"
         required: true
         default: everyone
 
