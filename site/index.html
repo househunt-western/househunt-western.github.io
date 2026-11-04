@@ -24,12 +24,11 @@
   <div id="app">
     <header class="topbar">
       <h1 class="serif" id="page-title">Discover</h1>
-      <button class="me-chip" id="me-chip" type="button" aria-label="Switch person">
-        <span class="avatar" id="me-avatar">?</span><span id="me-name">Who are you?</span>
+      <button class="me-chip" id="me-chip" type="button" aria-label="Your group">
+        <span class="avatar" id="me-avatar">?</span><span id="me-name"></span>
       </button>
     </header>
 
-    <div class="banner" id="group-banner" role="status" hidden></div>
     <div class="banner" id="data-banner" hidden></div>
 
     <!-- Discover: the swipe deck -->
@@ -134,13 +133,9 @@
     </div>
   </dialog>
 
-  <div class="overlay" id="onboard" hidden>
-    <div class="overlay-inner">
-      <h2>Who are you?</h2>
-      <p class="muted">Pick your name so the group knows whose vote is whose. No account needed.</p>
-      <div class="name-grid" id="name-grid"></div>
-      <p class="faint tiny" id="onboard-note"></p>
-    </div>
+  <!-- Before the app: sign in, join or start a group, Home Screen (screens in js/onboard-ui.js) -->
+  <div class="overlay gate" id="gate">
+    <div class="overlay-inner" id="gate-inner"><p class="muted">Loading…</p></div>
   </div>
 
   <div class="overlay" id="match" hidden>
