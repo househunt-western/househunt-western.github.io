@@ -1,8 +1,6 @@
 # Setting up the shared database (Supabase)
 
-Right now the web page saves votes only on each person's own phone. Supabase is a free hosted database that lets everyone in the group see each other's votes, notes and statuses. Setup takes about 15 minutes and needs no coding.
-
-You can do this now, while the scraper and the page are still being built.
+Supabase is a free hosted database. It holds everyone's accounts (email + password) and each friend group's votes, notes, statuses and scorecards. Anyone can sign up on the website, start a group and share its invite link; you never have to add people by hand. Setup takes about 30 minutes and needs no coding.
 
 ---
 
@@ -30,24 +28,38 @@ You can do this now, while the scraper and the page are still being built.
 
 If you ever run it again, nothing is lost. It only adds what's missing.
 
-## 4. Pick your group code and add your friends
+## 4. Accounts and the email that sends reset codes
 
-The group code is the password inside your invite link. Anyone with the link can vote, so make it long and random. Make one in Terminal:
+People sign in with email + password. If they forget it, Supabase emails a 6-digit code. Supabase's own email service only reaches your own address, so connect a Gmail made just for this.
 
-```bash
-python3 -c "import secrets; print(secrets.token_urlsafe(12))"
-```
+**a. Make the Gmail and an App Password**
+1. Make a new Gmail account, e.g. `househunt.london@gmail.com`.
+2. In that account: **Manage your Google Account** → **Security** → turn on **2-Step Verification**.
+3. Search the account settings for **App passwords**, create one called `Supabase`, and copy the 16-letter password. Google shows it once.
 
-That prints something like `q3V9xL0pT7mA2bKc`. Then, back in the **SQL Editor**, run a new query with **your code** and **your group's first names**:
+**b. Tell Supabase to send from it**
+1. Supabase → **Authentication** → **Emails** → **SMTP Settings** → turn on **Enable custom SMTP**.
+2. Fill in:
+   - **Sender email:** the new Gmail address. **Sender name:** `House Hunt`
+   - **Host:** `smtp.gmail.com`, **Port:** `465`
+   - **Username:** the new Gmail address. **Password:** the App Password
+3. **Save**.
 
-```sql
-select setup_group('q3V9xL0pT7mA2bKc', array['Paxton', 'Jordan', 'Maya', 'Sam']);
-```
+**c. Put the code in the reset email**
+1. **Authentication** → **Emails** → **Templates** → **Reset Password**.
+2. Subject: `Your House Hunt code`. Body:
+   ```html
+   <p>Your House Hunt code is <strong>{{ .Token }}</strong></p>
+   <p>Type it into the app to choose a new password. It works for one hour.</p>
+   ```
+3. **Save**.
 
-You should see `Group ready with 4 members`.
-
-- The names must match `members` in `site/js/config.js` exactly, including capitals.
-- Only a scrambled version (a hash) of the code is stored, so keep a copy of the code itself somewhere safe, like your notes app.
+**d. Sign-in settings**
+1. **Authentication** → **Sign In / Providers** → **Email**:
+   - **Confirm email:** off, so signing up is instant.
+   - **Minimum password length:** `8`
+   - **Email OTP length:** `6`
+2. **Authentication** → **URL Configuration** → **Site URL:** your website, e.g. `https://YOUR-GITHUB-USERNAME.github.io/london-housing/`
 
 ## 5. Copy the two values the page needs
 
@@ -68,21 +80,14 @@ You should see `Group ready with 4 members`.
 In Terminal, with your values swapped in:
 
 ```bash
-curl -s "https://abcdefgh.supabase.co/rest/v1/rpc/get_group_state" -H "apikey: PASTE_THE_PUBLIC_KEY" -H "Content-Type: application/json" -d '{"p_code":"q3V9xL0pT7mA2bKc"}'
+curl -s "https://abcdefgh.supabase.co/rest/v1/rpc/group_preview" -H "apikey: PASTE_THE_PUBLIC_KEY" -H "Content-Type: application/json" -d '{"p_invite":"no-such-invite-123"}'
 ```
 
-- **Right code:** `{"members": ["Paxton", ...], "votes": {}, "notes": {}, "status": {}, "budgets": {}}`
-- **Wrong code** (change one letter): an error saying `bad group code`. That's the lock working.
+You should see `null`: the database answers, and there's no group with that invite.
 
-## 7. Your invite link
+## 7. Start your group
 
-Once the website is on GitHub Pages, the link you pin in the group chat is:
-
-```
-https://YOUR-GITHUB-USERNAME.github.io/london-housing/#join=q3V9xL0pT7mA2bKc
-```
-
-The part after `#` never leaves the phone: browsers don't send it to any server.
+Open the website, tap **Create account**, then **Start a group**. The Group tab has your invite link, with a **Share** button for Snapchat, iMessage or Instagram. Friends who open it sign up and land in your group. Groups hold up to 5 people.
 
 ## 8. Give the daily GitHub job its keys (as soon as your GitHub repo exists)
 
@@ -97,18 +102,28 @@ If you haven't made the GitHub repo yet, skip this for now. `docs/github-setup.m
 
 ## Good to know
 
-- **Adding a friend:** run `setup_group` again with the **same** code and the new name added, and add them to `config.js`. Everyone keeps their votes.
-- **Changing the code** (e.g. the link got shared too widely): run `setup_group` with a new code. Old links stop working immediately, and nobody's votes are lost.
+- **Leaving:** anyone can leave a group from the Group tab. Their votes go with them. The last person out deletes the group.
 - **Free projects pause after about a week with no activity.** Once step 8 is done, the daily job's "Keep Supabase awake" step prevents that. If it does pause, open the project on supabase.com and click **Restore**.
 - **"RLS enabled, no policies" warnings** in Supabase's Security Advisor are expected. That's on purpose: the page can only use the locked functions, never the tables.
+
+## Moving from the old one-group version
+
+Databases set up before accounts had one shared group code and names typed in with `setup_group`. To move one over without losing votes, run these in the SQL Editor, in order:
+1. `migrate-to-accounts.sql` (moves the old tables out of the way)
+2. `schema.sql`
+3. `select adopt_old_group('<the old group code>', '<a name for the group>');`
+
+The old group becomes a normal group, and its invite is the old code, so the old link keeps working. Each friend signs in, taps their name once, and gets their votes back.
 
 ## Tests
 
 `schema.sql` is tested on a real Postgres engine running on your laptop (PGlite). The tests act as the web page and confirm:
-- the page can't read tables directly
-- every function rejects a wrong code
-- votes, notes, statuses, budgets and push subscriptions follow the same rules as the page
-- the daily job's secret key can only do what phone alerts need: it can't read the group code or notes
+- the page can't read tables directly, and signed-out visitors can only preview an invite
+- people in one group can't see or change another group's houses
+- joining, starting and leaving groups follow the rules (5 per group, names unique, 3 groups each)
+- votes, notes, statuses, budgets, scorecards and push subscriptions follow the same rules as the page
+- the daily job's secret key can only do what phone alerts need: no invites, accounts or notes
+- moving an old one-group database keeps every vote
 
 ```bash
 cd supabase
