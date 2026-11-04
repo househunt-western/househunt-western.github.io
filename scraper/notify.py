@@ -4,13 +4,14 @@ Each run it sends:
   * New houses: one alert per person about houses first seen this run that fit them: cost per
     person within their budget (or $1,200 if they haven't set one), and at most a 45-minute walk.
     Several houses become one summary alert, never a pile of them.
-  * Matches: "Everyone liked {house}" to the whole group, once per house. Sent ones are
-    remembered in Supabase (the push_sent table), so a house is never announced twice.
+  * Matches: "Everyone liked {house}" to everyone in a group once all of that group liked it,
+    once per house per group. Each group only hears about its own matches. Sent ones are
+    remembered in Supabase (the push_sent table, per group), so a house is never announced twice.
 
 Usage:
   .venv/bin/python -m scraper.notify                  # send (or say what's missing)
   .venv/bin/python -m scraper.notify --dry-run        # show what it would send, send nothing
-  .venv/bin/python -m scraper.notify --test Paxton    # a test alert to Paxton's phones ("everyone" = all)
+  .venv/bin/python -m scraper.notify --test Paxton    # a test alert to every Paxton's phones, in any group ("everyone" = all)
   .venv/bin/python -m scraper.notify --new-keys FILE  # make a new key pair (docs/github-setup.md)
 
 Settings come from environment variables (GitHub secrets in the daily run):
@@ -67,7 +68,8 @@ class Alert:
 class Send:
     member: str
     alert: Alert
-    phones: List[dict]  # rows from push_subs: {endpoint, member, subscription}
+    phones: List[dict]  # rows from push_subs: {endpoint, group_id, member, subscription}
+    group: Optional[str] = None  # group_id; never logged, the run log is public
 
 
 def site_base(site_url: Optional[str]) -> Optional[str]:
@@ -150,27 +152,37 @@ def new_matches(listings: List[dict], members: List[str], likes: List[dict], alr
 
 
 def plan(data: dict, members: List[dict], subs: List[dict], likes: Optional[List[dict]],
-         already_sent: Set[str], site_url: Optional[str]) -> Tuple[List[Send], List[str]]:
-    """Who gets which alert, and which matches they announce. Sends nothing.
+         already_sent: Set[Tuple[str, str]], site_url: Optional[str]) -> Tuple[List[Send], List[Tuple[str, str]]]:
+    """Who gets which alert, and which (group_id, listing_key) matches they announce. Sends nothing.
+    A name is only unique within its group, so people are (group_id, name) throughout.
     likes=None means the votes couldn't be read, so there are no match alerts this run."""
-    phones_of: Dict[str, List[dict]] = {}
+    phones_of: Dict[Tuple[str, str], List[dict]] = {}
     for s in subs:
-        phones_of.setdefault(s["member"], []).append(s)
-    budgets = {m["name"]: m.get("budget_max") for m in members}
+        phones_of.setdefault((s.get("group_id"), s["member"]), []).append(s)
+    budgets = {(m.get("group_id"), m["name"]): m.get("budget_max") for m in members}
     new = new_listings(data)
 
     sends = []
-    for member, phones in phones_of.items():
-        mine = [l for l in new if fits(l, budgets.get(member))]
+    for (group, member), phones in phones_of.items():
+        mine = [l for l in new if fits(l, budgets.get((group, member)))]
         if mine:
-            sends.append(Send(member, new_houses_alert(mine, site_url), phones))
+            sends.append(Send(member, new_houses_alert(mine, site_url), phones, group))
 
-    matched = [] if likes is None else new_matches(data.get("listings", []), [m["name"] for m in members],
-                                                    likes, already_sent)
-    if matched:
-        alert = match_alert(matched, site_url)
-        sends += [Send(member, alert, phones) for member, phones in phones_of.items()]
-    return sends, [l["key"] for l in matched]
+    matched: List[Tuple[str, str]] = []
+    if likes is not None:
+        names_in: Dict[str, List[str]] = {}
+        for m in members:
+            names_in.setdefault(m.get("group_id"), []).append(m["name"])
+        for group, names in names_in.items():
+            found = new_matches(data.get("listings", []), names,
+                                [v for v in likes if v.get("group_id") == group],
+                                {key for g, key in already_sent if g == group})
+            if not found:
+                continue
+            alert = match_alert(found, site_url)
+            sends += [Send(member, alert, phones, g) for (g, member), phones in phones_of.items() if g == group]
+            matched += [(group, l["key"]) for l in found]
+    return sends, matched
 
 
 # ---------- Supabase ----------
@@ -213,27 +225,31 @@ class Supabase:
                 return out
 
     def push_subs(self) -> List[dict]:
-        return self.rows("push_subs", "endpoint,member,subscription", "created_at")
+        return self.rows("push_subs", "endpoint,group_id,member,subscription", "created_at")
 
     def members(self) -> List[dict]:
-        return self.rows("members", "name,budget_max", "position")
+        return self.rows("group_members", "group_id,name,budget_max", "group_id,position")
 
     def likes(self) -> List[dict]:
-        return self.rows("votes", "listing_key,member", "listing_key,member", vote="eq.like")
+        return self.rows("votes", "group_id,listing_key,member", "group_id,listing_key,member", vote="eq.like")
 
-    def sent_matches(self) -> Set[str]:
-        return {r["listing_key"] for r in self.rows("push_sent", "listing_key", "listing_key", kind="eq.match")}
+    def sent_matches(self) -> Set[Tuple[str, str]]:
+        """(group_id, listing_key) of matches already announced."""
+        return {(r["group_id"], r["listing_key"])
+                for r in self.rows("push_sent", "group_id,listing_key", "group_id,listing_key", kind="eq.match")}
 
-    def remember_matches(self, keys: List[str]) -> None:
-        self._ok(self.http.post(self.base + "push_sent", json=[{"kind": "match", "listing_key": k} for k in keys],
+    def remember_matches(self, matches: List[Tuple[str, str]]) -> None:
+        self._ok(self.http.post(self.base + "push_sent",
+                                json=[{"group_id": g, "kind": "match", "listing_key": k} for g, k in matches],
                                 headers={"Prefer": "resolution=ignore-duplicates,return=minimal"}, timeout=30))
 
     def forget_phone(self, endpoint: str) -> None:
         self._ok(self.http.delete(self.base + "push_subs", params={"endpoint": f"eq.{endpoint}"}, timeout=30))
 
 
-SCHEMA_HINT = ("If it mentions a missing table or 'permission denied', paste the latest supabase/schema.sql "
-               "into Supabase's SQL editor and press Run.")
+SCHEMA_HINT = ("If it mentions a missing table or column, or 'permission denied', the database is behind: run "
+               "supabase/migrate-to-accounts.sql (or the latest supabase/schema.sql on a fresh install) "
+               "in Supabase's SQL editor.")
 
 
 # ---------- keys and sending ----------
@@ -284,12 +300,12 @@ class Pusher:
             return "failed"
 
 
-def deliver(sends: List[Send], pusher: Pusher, db: Supabase) -> Tuple[Dict[str, int], Set[str]]:
+def deliver(sends: List[Send], pusher: Pusher, db: Supabase) -> Tuple[Dict[str, int], Set[Tuple[Optional[str], str]]]:
     """Send everything; remove phones the push service says are gone. Returns the counts, and the
-    kinds of alert (tags) that reached at least one phone. Logs counts only: the run log is
+    (group_id, tag) of each kind of alert that reached at least one phone in that group. Logs counts only: the run log is
     public, and which houses the group matched on is the group's business."""
     counts = {"sent": 0, "gone": 0, "failed": 0}
-    reached: Set[str] = set()
+    reached: Set[Tuple[Optional[str], str]] = set()
     gone: Set[str] = set()
     for s in sends:
         results = []
@@ -300,7 +316,7 @@ def deliver(sends: List[Send], pusher: Pusher, db: Supabase) -> Tuple[Dict[str, 
             results.append(result)
             counts[result] += 1
             if result == "sent":
-                reached.add(s.alert.tag)
+                reached.add((s.group, s.alert.tag))
             if result == "gone":
                 gone.add(phone["endpoint"])
                 try:
@@ -363,8 +379,10 @@ def run_test(who: str, subs: List[dict], pusher: Pusher, db: Supabase, site_url:
                   ", ".join(sorted({s["member"] for s in subs})))
         return 1
     alert = test_alert(site_url)
-    members = sorted({p["member"] for p in phones})
-    counts, _ = deliver([Send(m, alert, [p for p in phones if p["member"] == m]) for m in members], pusher, db)
+    people: Dict[Tuple[str, str], List[dict]] = {}  # the same name can be in two groups
+    for p in phones:
+        people.setdefault((p["member"], p.get("group_id") or ""), []).append(p)
+    counts, _ = deliver([Send(m, alert, ps, g or None) for (m, g), ps in sorted(people.items())], pusher, db)
     if counts["gone"]:
         log.info("%d phone(s) had turned alerts off, so they were removed.", counts["gone"])
     return 0 if counts["sent"] else 1
@@ -376,7 +394,7 @@ def main(argv: Optional[List[str]] = None, env: Optional[Mapping[str, str]] = No
     parser = argparse.ArgumentParser(description="Send phone alerts about new houses and matches.")
     parser.add_argument("--data", type=Path, default=config.LISTINGS_PATH)
     parser.add_argument("--dry-run", action="store_true", help="show what would be sent, send nothing")
-    parser.add_argument("--test", metavar="NAME", help="send a test alert to NAME's phones, or 'everyone'")
+    parser.add_argument("--test", metavar="NAME", help="send a test alert to NAME's phones (in any group), or 'everyone'")
     parser.add_argument("--new-keys", metavar="FILE", type=Path, help="make a new VAPID key pair")
     args = parser.parse_args(argv)
     if args.new_keys:
@@ -435,10 +453,11 @@ def main(argv: Optional[List[str]] = None, env: Optional[Mapping[str, str]] = No
         return 0
 
     counts, reached = deliver(sends, pusher, db)
-    # Remember announced matches once anyone got one; if every phone failed, try again next run
-    if match_keys and "match" in reached:
+    # Remember a group's matches once anyone in it got the alert; if all its phones failed, try again next run
+    announced = [(g, key) for g, key in match_keys if (g, "match") in reached]
+    if announced:
         try:
-            db.remember_matches(match_keys)
+            db.remember_matches(announced)
         except (SupabaseError, requests.RequestException) as err:
             log.warning("Couldn't note which matches were announced, so they may be sent again: %s. %s", err, SCHEMA_HINT)
     log.info("Sent %d alert(s).%s%s", counts["sent"],

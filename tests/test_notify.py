@@ -21,9 +21,12 @@ def listing(i, cost=1000, **kw):
     return base
 
 
-def phone(member, n=1, push="https://web.push.apple.com"):
-    endpoint = f"{push}/{member.lower()}-{n}"
-    return {"endpoint": endpoint, "member": member,
+G1, G2 = "11111111-1111-1111-1111-111111111111", "22222222-2222-2222-2222-222222222222"
+
+
+def phone(member, n=1, push="https://web.push.apple.com", group=G1):
+    endpoint = f"{push}/{member.lower()}-{n}" + ("" if group == G1 else f"-{group[:2]}")
+    return {"endpoint": endpoint, "group_id": group, "member": member,
             "subscription": {"endpoint": endpoint, "keys": {"p256dh": "p", "auth": "a"}}}
 
 
@@ -46,7 +49,7 @@ class FakeSupabase:
 
     def __init__(self, push_subs=(), members=(), votes=(), push_sent=()):
         self.headers = {}
-        self.tables = {"push_subs": list(push_subs), "members": list(members), "votes": list(votes),
+        self.tables = {"push_subs": list(push_subs), "group_members": list(members), "votes": list(votes),
                        "push_sent": list(push_sent)}
         self.fail = {}
         self.calls = []
@@ -77,8 +80,9 @@ class FakeSupabase:
         if table in self.fail:
             status, message = self.fail[table]
             return FakeResponse(status, {"message": message})
-        have = {(r["kind"], r["listing_key"]) for r in self.tables[table]}
-        self.tables[table] += [r for r in json if (r["kind"], r["listing_key"]) not in have]
+        pk = lambda r: (r["group_id"], r["kind"], r["listing_key"])  # push_sent's primary key
+        have = {pk(r) for r in self.tables[table]}
+        self.tables[table] += [r for r in json if pk(r) not in have]
         return FakeResponse(201)
 
     def delete(self, url, params=None, timeout=None):
@@ -130,12 +134,17 @@ def data_file(tmp_path):
 
 ENV = {"SUPABASE_URL": "https://abc.supabase.co", "SUPABASE_SERVICE_KEY": "sb_secret_x",
        "VAPID_PRIVATE_KEY": PRIVATE, "SITE_URL": SITE}
-MEMBERS = [{"name": "Paxton", "budget_max": 1100, "position": 1}, {"name": "Charlie", "budget_max": None, "position": 2},
-           {"name": "Jack", "budget_max": 900, "position": 3}]
+MEMBERS = [{"group_id": G1, "name": "Paxton", "budget_max": 1100, "position": 1},
+           {"group_id": G1, "name": "Charlie", "budget_max": None, "position": 2},
+           {"group_id": G1, "name": "Jack", "budget_max": 900, "position": 3}]
 
 
-def likes(key, *names):
-    return [{"listing_key": key, "member": n, "vote": "like"} for n in names]
+def member(name, group, budget=None, position=1):
+    return {"group_id": group, "name": name, "budget_max": budget, "position": position}
+
+
+def likes(key, *names, group=G1):
+    return [{"group_id": group, "listing_key": key, "member": n, "vote": "like"} for n in names]
 
 
 def run(db, push, data_path, site_config, *argv, env=ENV):
@@ -212,7 +221,7 @@ def test_plan_skips_people_with_nothing_new_and_sends_matches_to_everyone():
     votes = likes("western_och:1", "Paxton", "Charlie", "Jack")
     sends, match_keys = nt.plan(data, MEMBERS, subs, votes, set(), SITE)
     assert [(s.member, s.alert.tag) for s in sends] == [("Paxton", "match"), ("Jack", "match")]
-    assert match_keys == ["western_och:1"]
+    assert match_keys == [(G1, "western_och:1")]
     # votes couldn't be read: no match alerts at all
     assert nt.plan(data, MEMBERS, subs, None, set(), SITE) == ([], [])
 
@@ -262,7 +271,7 @@ def test_daily_run_sends_alerts_removes_gone_phones_and_remembers_matches(site_c
     assert titles == {("paxton-1", "New house: $850/person"), ("jack-1", "New house: $850/person"),
                       ("paxton-1", "Everyone liked 2 Test St"), ("jack-1", "Everyone liked 2 Test St")}
     assert [r["endpoint"] for r in db.tables["push_subs"]] == [phone("Paxton")["endpoint"], phone("Jack")["endpoint"]]
-    assert db.tables["push_sent"] == [{"kind": "match", "listing_key": "western_och:2"}]
+    assert db.tables["push_sent"] == [{"group_id": G1, "kind": "match", "listing_key": "western_och:2"}]
     assert "1 phone(s) had turned alerts off" in caplog.text
     # The public run log has counts, not the houses the group agreed on or phone addresses
     assert "2 Test St" not in caplog.text and "web.push.apple.com" not in caplog.text
@@ -287,7 +296,7 @@ def test_a_match_nobody_received_is_tried_again_next_run(site_config, data_file)
 def test_new_house_alerts_still_go_out_before_the_schema_update(site_config, data_file, caplog):
     path = data_file([listing(1, cost=850)])
     db = FakeSupabase(push_subs=[phone("Paxton")])
-    db.fail = {"members": (403, "permission denied for table members"),
+    db.fail = {"group_members": (403, "permission denied for table group_members"),
                "votes": (403, "permission denied for table votes")}
     push = FakePush()
     with caplog.at_level(logging.WARNING, logger="notify"):
@@ -348,7 +357,7 @@ def test_test_alert_goes_to_one_person_or_everyone(site_config, data_file, caplo
 
 
 def test_supabase_client_pages_through_rows_and_sends_the_key():
-    db = FakeSupabase(votes=[{"listing_key": f"k{i}", "member": "A", "vote": "like"} for i in range(2500)])
+    db = FakeSupabase(votes=[{"group_id": G1, "listing_key": f"k{i}", "member": "A", "vote": "like"} for i in range(2500)])
     client = nt.Supabase("https://abc.supabase.co/", "sb_secret_x", session=db)
     assert len(client.likes()) == 2500
     assert [c[2]["offset"] for c in db.calls] == [0, 1000, 2000]
@@ -358,6 +367,77 @@ def test_supabase_client_pages_through_rows_and_sends_the_key():
     db.fail = {"push_subs": (401, "Invalid API key")}
     with pytest.raises(nt.SupabaseError, match="401 Invalid API key"):
         client.push_subs()
+
+
+# ---------- many groups ----------
+
+def test_a_match_in_one_group_only_alerts_that_group(site_config, data_file):
+    path = data_file([listing(1, is_new=False), listing(2, is_new=False)])
+    db = FakeSupabase(push_subs=[phone("Anna", group=G1), phone("Julie", group=G1), phone("Bea", group=G2)],
+                      members=[member("Anna", G1), member("Julie", G1, position=2), member("Bea", G2)],
+                      votes=likes("western_och:1", "Anna", "Julie", group=G1)
+                      + likes("western_och:2", "Anna", group=G1))  # only half of group 1: not a match
+    push = FakePush()
+    assert run(db, push, path, site_config) == 0
+    assert sorted(s["endpoint"].rsplit("/", 1)[1] for s in push.sent) == ["anna-1", "julie-1"]
+    assert {s["payload"]["title"] for s in push.sent} == {"Everyone liked 1 Test St"}
+    assert db.tables["push_sent"] == [{"group_id": G1, "kind": "match", "listing_key": "western_och:1"}]
+
+
+def test_push_sent_is_per_group(site_config, data_file):
+    path = data_file([listing(1, is_new=False)])
+    db = FakeSupabase(push_subs=[phone("Anna", group=G1), phone("Bea", group=G2)],
+                      members=[member("Anna", G1), member("Bea", G2)],
+                      votes=likes("western_och:1", "Anna", group=G1) + likes("western_och:1", "Bea", group=G2),
+                      push_sent=[{"group_id": G1, "kind": "match", "listing_key": "western_och:1"}])
+    push = FakePush()
+    assert run(db, push, path, site_config) == 0
+    # Group 1 already heard about it; group 2 matched on the same house and hasn't
+    assert [s["endpoint"].rsplit("/", 1)[1] for s in push.sent] == ["bea-1-22"]
+    assert {(r["group_id"], r["listing_key"]) for r in db.tables["push_sent"]} == {
+        (G1, "western_och:1"), (G2, "western_och:1")}
+    push2 = FakePush()
+    assert run(db, push2, path, site_config) == 0
+    assert push2.sent == []
+
+
+def test_the_same_name_in_two_groups_is_two_people(site_config, data_file):
+    path = data_file([listing(1, cost=1000), listing(2, cost=1150, is_new=False)])
+    sam1, sam2 = phone("Sam", group=G1), phone("Sam", group=G2)
+    db = FakeSupabase(push_subs=[sam1, sam2],
+                      members=[member("Sam", G1, budget=900), member("Sam", G2, budget=1500),
+                               member("Lee", G2, position=2)],
+                      votes=likes("western_och:2", "Sam", group=G1) + likes("western_och:2", "Sam", group=G2))
+    push = FakePush()
+    assert run(db, push, path, site_config) == 0
+    got = {(s["endpoint"], s["payload"]["title"]) for s in push.sent}
+    # Group 1's Sam has a $900 budget, so no new house; group 2's Sam has $1,500.
+    # Group 1 is only Sam, so that's a match; group 2 also needs Lee's like.
+    assert got == {(sam1["endpoint"], "Everyone liked 2 Test St"), (sam2["endpoint"], "New house: $1,000/person")}
+    assert db.tables["push_sent"] == [{"group_id": G1, "kind": "match", "listing_key": "western_och:2"}]
+
+    push = FakePush()
+    assert run(db, push, data_file([]), site_config, "--test", "sam") == 0
+    assert {s["endpoint"] for s in push.sent} == {sam1["endpoint"], sam2["endpoint"]}
+
+
+def test_a_group_whose_phones_all_failed_gets_its_match_again(site_config, data_file):
+    path = data_file([listing(1, is_new=False)])
+    a, b = phone("Anna", group=G1), phone("Bea", group=G2)
+    db = FakeSupabase(push_subs=[a, b], members=[member("Anna", G1), member("Bea", G2)],
+                      votes=likes("western_och:1", "Anna", group=G1) + likes("western_och:1", "Bea", group=G2))
+    assert run(db, FakePush({b["endpoint"]: 500}), path, site_config) == 1
+    assert db.tables["push_sent"] == [{"group_id": G1, "kind": "match", "listing_key": "western_och:1"}]
+
+
+def test_supabase_reads_and_writes_carry_the_group():
+    db = FakeSupabase(members=MEMBERS, push_sent=[{"group_id": G1, "kind": "match", "listing_key": "k"}])
+    client = nt.Supabase("https://abc.supabase.co", "sb_secret_x", session=db)
+    assert client.members()[0] == {"group_id": G1, "name": "Paxton", "budget_max": 1100}
+    assert client.sent_matches() == {(G1, "k")}
+    client.remember_matches([(G2, "k")])
+    assert db.calls[-1][2] == [{"group_id": G2, "kind": "match", "listing_key": "k"}]
+    assert [c[1] for c in db.calls if c[0] == "GET"] == ["group_members", "push_sent"]
 
 
 # ---------- keys ----------
