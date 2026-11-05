@@ -104,6 +104,11 @@
   "lng": -81.27713,
   "precision": "house"
  },
+ "112 roehampton avenue": {
+  "lat": 43.0111835,
+  "lng": -81.2047326,
+  "precision": "house"
+ },
  "114 paul st": {
   "lat": 42.9887223,
   "lng": -81.2638747,
@@ -199,6 +204,11 @@
   "lat": 42.9921538,
   "lng": -81.2539598,
   "precision": "street"
+ },
+ "136 | mill street": {
+  "lat": 42.9918748,
+  "lng": -81.2552545,
+  "precision": "house"
  },
  "140 huron": {
   "lat": 43.0056576,
@@ -928,6 +938,11 @@
   "lng": -81.2663913,
   "precision": "house"
  },
+ "82 huron street": {
+  "lat": 43.005148,
+  "lng": -81.266015,
+  "precision": "house"
+ },
  "822 maitland": {
   "lat": 43.0003951,
   "lng": -81.2435421,
@@ -975,6 +990,11 @@
   "lng": -81.2492374,
   "precision": "house"
  },
+ "974 colborne street": {
+  "lat": 43.0056994,
+  "lng": -81.2493565,
+  "precision": "house"
+ },
  "974 western rd": {
   "lat": 42.9962998,
   "lng": -81.270483,
@@ -1010,6 +1030,7 @@
  "oxford street west & wharncliffe road north": null,
  "paul street & wharncliffe road north": null,
  "rollscourt gardens & castlegrove blvd": null,
+ "upper - 62 gunn street": null,
  "western rd & essex st": null,
  "western road & sarnia road": {
   "lat": 43.0019212,
