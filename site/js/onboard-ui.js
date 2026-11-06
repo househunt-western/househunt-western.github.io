@@ -38,12 +38,13 @@ function groupName(name) {
 }
 
 // mode: "signup" or "signin". preview: what the invite link opens (or null).
-export function authHtml({ mode = "signup", preview = null, email = "", message = "" } = {}) {
+// browse: offer to look around without an account.
+export function authHtml({ mode = "signup", preview = null, email = "", message = "", browse = false } = {}) {
   const signup = mode === "signup";
   const title = preview ? `You're invited to ${groupName(preview.name)}` : signup ? "House Hunt" : "Welcome back";
   const lead = preview
     ? (signup ? "Make an account to join. It takes a few seconds." : "Sign in to join.")
-    : (signup ? "Find a student house with your friends. Make an account to start." : "Sign in to get back to your group.");
+    : (signup ? "Make an account to match houses with your friends. Your swipes come with you." : "Sign in to get back to your group.");
   return `
     <h2>${title}</h2>
     ${inviteLine(preview)}
@@ -57,7 +58,8 @@ export function authHtml({ mode = "signup", preview = null, email = "", message 
     ${signup ? "" : '<button class="text-link" type="button" data-gate="forgot">Forgot password?</button>'}
     <p class="small muted gate-switch">${signup
       ? 'Already have an account? <button class="text-link" type="button" data-gate="signin">Sign in</button>'
-      : 'New here? <button class="text-link" type="button" data-gate="signup">Create an account</button>'}</p>`;
+      : 'New here? <button class="text-link" type="button" data-gate="signup">Create an account</button>'}</p>
+    ${browse ? '<button class="text-link" type="button" data-gate="browse">Not now, just look around</button>' : ""}`;
 }
 
 // step "email": ask where to send the code. step "code": type the code and a new password.

@@ -1,0 +1,23 @@
+{
+  // Terminal → Run Task… in VS Code. See docs/sandbox.md.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview site",
+      "detail": "Runs the site on this Mac: http://localhost:8770/site/ (and on your phone, same Wi-Fi)",
+      "type": "shell",
+      "command": "echo; echo '  On this Mac:  http://localhost:8770/site/'; echo \"  On your phone (same Wi-Fi):  http://$(ipconfig getifaddr en0 || echo YOUR-MAC-IP):8770/site/\"; echo; python3 -m http.server 8770 --bind 0.0.0.0",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Run site tests",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/site" },
+      "problemMatcher": [],
+      "group": { "kind": "test", "isDefault": true }
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>House Hunt</title>
-  <meta name="description" content="Our group's search for a student house near Western, May 2027.">
+  <meta name="description" content="Swipe on student houses near Western and Huron, then match one with your friends.">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -46,7 +46,7 @@
 
     <!-- Shortlist -->
     <section id="tab-shortlist" data-title="Shortlist" hidden>
-      <p class="muted small" style="margin-top:0">Houses at least one of you liked. Matches (everyone liked it) are on top.</p>
+      <p class="muted small" style="margin-top:0" id="shortlist-intro">Houses at least one of you liked. Matches (everyone liked it) are on top.</p>
       <div class="list" id="shortlist"></div>
     </section>
 
@@ -136,6 +136,11 @@
   <!-- Before the app: sign in, join or start a group, Home Screen (screens in js/onboard-ui.js) -->
   <div class="overlay gate" id="gate">
     <div class="overlay-inner" id="gate-inner"><p class="muted">Loading…</p></div>
+  </div>
+
+  <!-- Before signing up: "Your house type" after a few swipes (js/guest-ui.js) -->
+  <div class="overlay gate" id="hook" hidden>
+    <div class="overlay-inner" id="hook-inner"></div>
   </div>
 
   <div class="overlay" id="match" hidden>

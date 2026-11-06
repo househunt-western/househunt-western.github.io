@@ -6,6 +6,9 @@ import { Auth, MIN_PASSWORD, cleanEmail } from "./auth.js";
 import { captureInstallPrompt, currentInstallState, promptInstall } from "./install.js";
 import { authHtml, forgotHtml, installHtml, iosStepsHtml, joinHtml, problemHtml, startHtml } from "./onboard-ui.js";
 import {
+  GUEST_NAME, GUEST_STORE_KEY, HOOK_AT, fitsCount, guestDetailHtml, guestGroupHtml, guestShortlistNote, hookHtml, votesToBring,
+} from "./guest-ui.js";
+import {
   DEFAULT_FILTERS, STATUSES, budgetLabel, STATUS_LABELS, deckFor, filterListings, groupSummary, initials, isMatch,
   money, parseInviteInput, parseJoinHash, shareText, shortlist, sortListings, statusOf, votesFor, walkLabel, formatDate, costOf,
 } from "./logic.js";
@@ -37,6 +40,7 @@ const app = {
   sample: false,
   lastRun: null,
   me: null, // my name in this group, from the server (so nobody can vote as someone else)
+  guest: false, // looking around without an account: votes stay on this phone (guest-ui.js)
   groups: null, // my groups, for the Group tab's switcher (loaded when the tab opens)
   filters: { ...DEFAULT_FILTERS, ...prefs.get("filters", {}) },
   sort: prefs.get("sort", "cost"),
@@ -131,6 +135,11 @@ function render() {
 }
 
 function renderMe() {
+  if (app.guest) {
+    $("me-avatar").innerHTML = '<i class="ti ti-user" aria-hidden="true"></i>';
+    $("me-name").textContent = "Sign in";
+    return;
+  }
   $("me-avatar").textContent = app.me ? initials(app.me) : "?";
   $("me-name").textContent = app.me || "";
 }
@@ -214,7 +223,7 @@ function lockedText(ready) {
 function orderPill(ready, suggested) {
   const pill = (icon, text) => `<button class="pill" type="button" data-order><i class="ti ti-${icon}" aria-hidden="true"></i> ${esc(text)}</button>`;
   if (!ready.ready) return pill("lock", lockedText(ready).short);
-  return suggested ? pill("sparkles", "Suggested for us") : pill("clock", "Newest first");
+  return suggested ? pill("sparkles", app.guest ? "Suggested for you" : "Suggested for us") : pill("clock", "Newest first");
 }
 
 function toggleOrder() {
@@ -264,6 +273,7 @@ async function castVote(l, vote, { fromDeck = false } = {}) {
   if (result.match) showMatch(l);
   else if (fromDeck) $("deck-hint").textContent = vote === "like" ? `Liked ${l.title}` : `Passed on ${l.title}`;
   render();
+  if (app.guest) maybeShowHook();
 }
 
 async function undoLast() {
@@ -276,6 +286,61 @@ async function undoLast() {
     deck.show([l, ...deck.items.filter((x) => x.key !== l.key)]);
   }
   $("deck-hint").textContent = "Undone";
+}
+
+// ---------- looking around without an account ----------
+
+function guestProfile() {
+  const votes = Object.values(store.state.votes).filter((v) => v[GUEST_NAME]).length;
+  const profile = groupProfile(app.listings, store.state, [GUEST_NAME]);
+  return { votes, likes: profile.likes, profile };
+}
+
+// "Your house type", once, after a few swipes.
+function maybeShowHook() {
+  const { votes, likes, profile } = guestProfile();
+  if (votes < HOOK_AT || prefs.get("hookShown")) return;
+  prefs.set("hookShown", true);
+  $("hook-inner").innerHTML = hookHtml({ profile, likes, fits: fitsCount(app.listings, store.state, profile) });
+  $("hook").hidden = false;
+}
+
+// Off to sign up or sign in. The page reloads into the usual screens, and my votes come along.
+function wantAccount(mode) {
+  prefs.set("wantAccount", mode);
+  location.reload();
+}
+
+// Votes made before signing up go into the group I land in, then leave this phone.
+async function bringGuestVotes(shared) {
+  const guest = new LocalGroupStore(globalThis.localStorage, GUEST_STORE_KEY, null);
+  await guest.load();
+  const me = shared.info.me;
+  const todo = votesToBring(guest.state, shared.state, me);
+  if (todo.length) {
+    showGate(`<h2>Bringing your votes</h2><p class="muted">Adding your ${todo.length} swipes to ${esc(shared.info.name)}…</p>`);
+    try {
+      for (let i = 0; i < todo.length; i += 5) {
+        await Promise.all(todo.slice(i, i + 5).map(({ key, vote }) => shared.vote(key, me, vote)));
+      }
+      await shared.load();
+    } catch (err) {
+      console.warn("Couldn't bring your votes; trying again next time", err);
+      await shared.load().catch(() => {});
+      return;
+    }
+  }
+  try {
+    globalThis.localStorage?.removeItem(GUEST_STORE_KEY);
+  } catch {
+    // blocked storage: nothing was saved there anyway
+  }
+  const liked = todo.filter((v) => v.vote === "like").map((v) => v.key);
+  if (!liked.length) return;
+  const matches = shared.members.length > 1 ? liked.filter((key) => isMatch(shared.state, key, shared.members)).length : 0;
+  toast(matches
+    ? `Your likes are in. You already match on ${matches} house${matches === 1 ? "" : "s"}!`
+    : `Brought your ${liked.length} like${liked.length === 1 ? "" : "s"} into ${shared.info.name}`);
 }
 
 function showMatch(l) {
@@ -295,6 +360,11 @@ function showMatch(l) {
 function renderShortlist() {
   const items = shortlist(app.listings, store.state, members);
   if (app.picking) return renderPicking(items);
+  $("shortlist-intro").hidden = app.guest;
+  if (app.guest) {
+    $("shortlist").innerHTML = guestShortlistNote(items.length) + items.map((l) => listRow(l, store.state, { showVotes: false })).join("");
+    return;
+  }
   $("shortlist").innerHTML = items.length
     ? compareStart(items) + items.map((l) => {
         const match = isMatch(store.state, l.key, members);
@@ -316,7 +386,7 @@ function renderHome() {
       ? (sum.sweetSpot.median <= sum.ceiling
         ? `<span class="good"><i class="ti ti-arrow-down-right" aria-hidden="true"></i> ${money(sum.ceiling - sum.sweetSpot.median)} under the group ceiling</span>`
         : `<span class="warn"><i class="ti ti-arrow-up-right" aria-hidden="true"></i> ${money(sum.sweetSpot.median - sum.ceiling)} over the group ceiling</span>`)
-      : '<span class="muted">Set budgets in Group to see the ceiling</span>';
+      : app.guest ? "" : '<span class="muted">Set budgets in Group to see the ceiling</span>';
     hero = `
       <div class="hero-label">Group sweet spot · per person</div>
       <div class="hero-number serif">${money(sum.sweetSpot.median)}</div>
@@ -408,6 +478,10 @@ function budgetReality() {
 }
 
 function renderGroup() {
+  if (app.guest) {
+    $("group").innerHTML = guestGroupHtml(guestProfile());
+    return;
+  }
   const rejected = app.listings.filter((l) => statusOf(store.state, l.key) === "rejected");
   const voteCount = (m) => Object.values(store.state.votes).filter((v) => v[m]).length;
   const roster = store.shared && store.roster.length ? store.roster : members.map((name) => ({ name, claimed: true }));
@@ -677,7 +751,7 @@ function renderDetail() {
     <div class="card-title" style="font-size:18px">${esc(l.title)}</div>
     <div style="margin-top:4px">${fitLine(l, myBudget())}</div>
     ${factsGrid(l)}
-    ${alsoListed(l)}
+    ${app.guest ? "" : alsoListed(l)}
     <h3>Rundown</h3>
     ${bulletList(l)}
     ${l.amenities?.length ? `<div class="chips" style="margin-top:8px">${l.amenities.map((a) => `<span class="chip">${esc(a)}</span>`).join("")}</div>` : ""}
@@ -687,6 +761,11 @@ function renderDetail() {
       <button class="btn ${myVote === "pass" ? "btn-ink" : ""}" type="button" data-vote="pass"><i class="ti ti-x" aria-hidden="true"></i> Pass</button>
       <button class="btn ${myVote === "like" ? "btn-ink" : ""}" type="button" data-vote="like"><i class="ti ti-heart" aria-hidden="true"></i> Like</button>
     </div>
+    ${app.guest ? `
+    <div style="margin-top:22px">${guestDetailHtml()}</div>
+    <div class="row-btns" style="margin-top:12px">
+      <button class="btn" type="button" data-share="${esc(l.key)}"><i class="ti ti-share" aria-hidden="true"></i> Share</button>
+    </div>` : `
     <div class="small muted" style="margin-top:8px;display:flex;gap:8px;align-items:center">${voteAvatars(store.state, l.key) || "No votes yet"}</div>
 
     <h3>Status</h3>
@@ -707,16 +786,18 @@ function renderDetail() {
     <div class="row-btns" style="margin-top:18px">
       <button class="btn" type="button" data-share="${esc(l.key)}"><i class="ti ti-share" aria-hidden="true"></i> Share</button>
       ${safeUrl(l.url) ? `<a class="btn btn-ink" href="${esc(safeUrl(l.url))}" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Open listing <i class="ti ti-external-link" aria-hidden="true"></i></a>` : ""}
-    </div>`;
+    </div>`}`;
 }
 
 async function share(key) {
   const l = app.byKey[key];
   if (!l) return;
-  const text = shareText(l);
+  // Before signing up, the house goes out with a link to House Hunt instead of the listing
+  const site = `${location.origin}${location.pathname}`;
+  const text = app.guest ? `${shareText(l).replace(l.url, "").trim()} Found on House Hunt: ${site}` : shareText(l);
   if (navigator.share) {
     try {
-      await navigator.share({ title: l.title, text, url: l.url });
+      await navigator.share({ title: l.title, text, url: app.guest ? site : l.url });
       return;
     } catch (err) {
       if (err?.name === "AbortError") return; // they closed the share sheet
@@ -1035,12 +1116,14 @@ async function busy(work) {
 async function signInScreen(dir, invite) {
   const preview = invite ? await dir.groupPreview(invite).catch(() => null) : null;
   let email = prefs.get("email") || "";
-  // Returning (this phone signed in before, or it's the Home Screen app): sign in. New: sign up.
-  let mode = email || currentInstallState(installPrompt) === "installed" ? "signin" : "signup";
+  // Asked for one from looking around, or returning (this phone signed in before, or it's the
+  // Home Screen app): sign in. New: sign up.
+  let mode = prefs.get("wantAccount") || (email || currentInstallState(installPrompt) === "installed" ? "signin" : "signup");
+  const browse = !invite; // with no invite to use, they can look around first
   let message = "";
   let verified = false; // the reset code worked; only the new password is left to save
   for (;;) {
-    if (mode === "signup" || mode === "signin") showGate(authHtml({ mode, preview, email, message }));
+    if (mode === "signup" || mode === "signin") showGate(authHtml({ mode, preview, email, message, browse }));
     else showGate(forgotHtml({ step: mode === "forgot" ? "email" : "code", email, message }));
     const a = await nextAction();
     message = "";
@@ -1052,6 +1135,12 @@ async function signInScreen(dir, invite) {
         message = err.message;
       }
       continue;
+    }
+    if (a.action === "browse") {
+      prefs.set("wantAccount", null);
+      prefs.set("browse", true);
+      location.reload();
+      return new Promise(() => {}); // the page reloads into looking around
     }
     if (a.action) {
       mode = a.action; // signin, signup or forgot
@@ -1262,8 +1351,16 @@ function bindEvents() {
   $("btn-undo").onclick = undoLast;
   $("match-keep").onclick = () => ($("match").hidden = true);
 
+  // Before signing up: the buttons that lead to an account, and closing "Your house type"
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-guest]");
+    if (!b) return;
+    if (b.dataset.guest === "close") $("hook").hidden = true;
+    else wantAccount(b.dataset.guest); // signup or signin
+  });
+
   document.addEventListener("keydown", (e) => {
-    if (app.tab !== "discover" || document.querySelector("dialog[open]") || !$("gate").hidden) return;
+    if (app.tab !== "discover" || document.querySelector("dialog[open]") || !$("gate").hidden || !$("hook").hidden) return;
     if (e.target.closest("input, textarea, select")) return;
     if (e.key === "ArrowRight") deck.swipe("like");
     else if (e.key === "ArrowLeft") deck.swipe("pass");
@@ -1408,14 +1505,32 @@ async function connectStore() {
   auth = new Auth(sb);
   // Signed out in another tab, or the sign-in couldn't be renewed: back to the sign-in screen
   auth.onChange((signedIn) => !signedIn && location.reload());
+  if (canLookAround()) {
+    const guest = new LocalGroupStore(globalThis.localStorage, GUEST_STORE_KEY);
+    await guest.load();
+    app.guest = true;
+    app.me = GUEST_NAME;
+    hideGate();
+    return guest;
+  }
   const shared = new SupabaseGroupStore({ ...sb, auth });
   await openGroup(shared);
+  prefs.set("wantAccount", null);
+  prefs.set("browse", null);
+  await bringGuestVotes(shared);
   await installStep();
   hideGate();
   shared.startPolling();
   members = shared.members;
   app.me = shared.info.me;
   return shared;
+}
+
+// Signed out with no invite to use: look around first. The Home Screen app goes to sign in
+// unless they chose to look around, since it's mostly opened by people who have an account.
+function canLookAround() {
+  if (auth.signedIn || prefs.get("invite") || prefs.get("wantAccount")) return false;
+  return currentInstallState(installPrompt) !== "installed" || Boolean(prefs.get("browse"));
 }
 
 // A tapped alert opens ?tab=shortlist or ?tab=discover. Take it, then tidy the address.
@@ -1437,7 +1552,7 @@ async function start() {
   if (pushSupported(window)) navigator.serviceWorker.register("sw.js").catch((err) => console.warn("No service worker", err));
   const listings = loadListings().catch((err) => ({ err })); // download while signing in
   store = await connectStore();
-  voting = new Voting(store, () => members);
+  voting = new Voting(store, () => (app.guest ? [] : members)); // alone, a like isn't a match
   store.onChange((state, info) => {
     if (store.shared) {
       members = store.members; // someone joined or left
