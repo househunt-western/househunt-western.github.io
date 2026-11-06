@@ -49,6 +49,11 @@
   "lng": -81.2765063,
   "precision": "house"
  },
+ "1084 richmond st": {
+  "lat": 43.0060938,
+  "lng": -81.2584466,
+  "precision": "house"
+ },
  "1088 richmond street": {
   "lat": 43.0063814,
   "lng": -81.2585937,
@@ -117,6 +122,11 @@
  "1148 richmond street": {
   "lat": 43.0088047,
   "lng": -81.2607867,
+  "precision": "house"
+ },
+ "115 wilson": {
+  "lat": 42.9872428,
+  "lng": -81.2601994,
   "precision": "house"
  },
  "119 albert st": {
@@ -225,6 +235,11 @@
   "lng": -81.2544976,
   "precision": "house"
  },
+ "142 paul street": {
+  "lat": 42.9882108,
+  "lng": -81.2656401,
+  "precision": "house"
+ },
  "144 empress ave": {
   "lat": 42.9896782,
   "lng": -81.266898,
@@ -275,6 +290,11 @@
  "152 wilson": {
   "lat": 42.9887505,
   "lng": -81.2605083,
+  "precision": "house"
+ },
+ "1532 western road": {
+  "lat": 43.0175313,
+  "lng": -81.2776559,
   "precision": "house"
  },
  "154 john st": {
@@ -396,6 +416,11 @@
  "188 cambridge street": {
   "lat": 42.9888851,
   "lng": -81.2699201,
+  "precision": "house"
+ },
+ "19 barrington ave": {
+  "lat": 42.9877617,
+  "lng": -81.2642876,
   "precision": "house"
  },
  "190 cooper": {
@@ -544,6 +569,11 @@
   "lng": -81.2624938,
   "precision": "house"
  },
+ "23 alma st.": {
+  "lat": 42.9980757,
+  "lng": -81.2534046,
+  "precision": "house"
+ },
  "23 mcdonald ave.": {
   "lat": 42.9942943,
   "lng": -81.2680231,
@@ -584,6 +614,11 @@
   "lng": -81.256522,
   "precision": "house"
  },
+ "25 maldon road": {
+  "lat": 43.0000846,
+  "lng": -81.2976904,
+  "precision": "house"
+ },
  "250 cheapside": {
   "lat": 43.0019518,
   "lng": -81.255901,
@@ -597,6 +632,11 @@
  "255 trott drive": {
   "lat": 42.9939709,
   "lng": -81.2779144,
+  "precision": "house"
+ },
+ "26 gunn street": {
+  "lat": 42.9940124,
+  "lng": -81.2626787,
   "precision": "house"
  },
  "261 epworth ave": {
@@ -762,6 +802,11 @@
   "lng": -81.2694076,
   "precision": "house"
  },
+ "48 woodward ave": {
+  "lat": 42.9850688,
+  "lng": -81.2697675,
+  "precision": "house"
+ },
  "5 renwick avenue": {
   "lat": 43.0030992,
   "lng": -81.253151,
@@ -775,6 +820,11 @@
  "51 st. george street": {
   "lat": 42.9914874,
   "lng": -81.2537211,
+  "precision": "house"
+ },
+ "52 empress avenue": {
+  "lat": 42.9902506,
+  "lng": -81.2614406,
   "precision": "house"
  },
  "52b argyle st.": {
@@ -795,6 +845,11 @@
  "557 ridout street north": {
   "lat": 42.9867892,
   "lng": -81.2556475,
+  "precision": "house"
+ },
+ "558 st. george street": {
+  "lat": 43.0061444,
+  "lng": -81.2610164,
   "precision": "house"
  },
  "56 essex st": {
@@ -973,6 +1028,11 @@
  "918 waterloo street": {
   "lat": 43.0036352,
   "lng": -81.251569,
+  "precision": "house"
+ },
+ "925": {
+  "lat": 42.9779534,
+  "lng": -82.3754597,
   "precision": "house"
  },
  "95 edgar": {
