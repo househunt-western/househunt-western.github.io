@@ -220,6 +220,11 @@
   "lng": -81.2552545,
   "precision": "house"
  },
+ "139 mill street": {
+  "lat": 42.9917172,
+  "lng": -81.2551479,
+  "precision": "house"
+ },
  "140 huron": {
   "lat": 43.0056576,
   "lng": -81.2643404,
@@ -672,6 +677,11 @@
   "precision": "house"
  },
  "3 stirrup court": null,
+ "30 chapman court": {
+  "lat": 42.9937101,
+  "lng": -81.3005892,
+  "precision": "street"
+ },
  "30 essex": {
   "lat": 42.9950524,
   "lng": -81.2681875,
@@ -882,6 +892,11 @@
   "lng": -81.3074969,
   "precision": "house"
  },
+ "61 st george street": {
+  "lat": 42.9919131,
+  "lng": -81.2539421,
+  "precision": "house"
+ },
  "616 waterloo street": {
   "lat": 42.9926235,
   "lng": -81.2458828,
@@ -950,6 +965,11 @@
  "73 gunn st": {
   "lat": 42.9957335,
   "lng": -81.2633168,
+  "precision": "house"
+ },
+ "73 nottinghill cres": {
+  "lat": 42.9498798,
+  "lng": -81.2956536,
   "precision": "house"
  },
  "733 wellington st": {
