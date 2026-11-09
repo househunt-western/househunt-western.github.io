@@ -14,6 +14,11 @@
   "lng": -81.2656806,
   "precision": "house"
  },
+ "103 paul street": {
+  "lat": 42.9888617,
+  "lng": -81.264044,
+  "precision": "house"
+ },
  "1030 oakcrossing gate": {
   "lat": 42.9909925,
   "lng": -81.3116993,
@@ -22,6 +27,11 @@
  "1031 patricia st.": {
   "lat": 43.0085224,
   "lng": -81.2556396,
+  "precision": "house"
+ },
+ "1037 richmond street": {
+  "lat": 43.0033998,
+  "lng": -81.257442,
   "precision": "house"
  },
  "105 huron st": {
@@ -42,6 +52,11 @@
  "1075 adelaide st north": {
   "lat": 43.0106769,
   "lng": -81.2425354,
+  "precision": "house"
+ },
+ "108 oxford st": {
+  "lat": 42.991001,
+  "lng": -81.2677617,
   "precision": "house"
  },
  "1083 western rd.": {
@@ -200,9 +215,19 @@
   "lng": -81.2550389,
   "precision": "house"
  },
+ "13 cumberland crescent": {
+  "lat": 43.0309369,
+  "lng": -81.2655851,
+  "precision": "street"
+ },
  "13 mcdonald ave": {
   "lat": 42.9944897,
   "lng": -81.2673569,
+  "precision": "house"
+ },
+ "132 empress": {
+  "lat": 42.9899145,
+  "lng": -81.266069,
   "precision": "house"
  },
  "133 ann street": {
@@ -261,6 +286,7 @@
   "lng": -81.2671575,
   "precision": "house"
  },
+ "145 john": null,
  "145 john st.": {
   "lat": 42.9908881,
   "lng": -81.2543172,
@@ -274,6 +300,11 @@
  "146 paul street": {
   "lat": 42.9881486,
   "lng": -81.2658537,
+  "precision": "house"
+ },
+ "147 foster ave": {
+  "lat": 42.9876766,
+  "lng": -81.2740394,
   "precision": "house"
  },
  "15 shavian": {
@@ -377,6 +408,11 @@
   "lng": -81.2711889,
   "precision": "house"
  },
+ "165 cambridge": {
+  "lat": 42.9893249,
+  "lng": -81.2690326,
+  "precision": "house"
+ },
  "165 john street": {
   "lat": 42.9911385,
   "lng": -81.2534355,
@@ -385,6 +421,11 @@
  "165 wharncliffe road north": {
   "lat": 42.9884338,
   "lng": -81.262863,
+  "precision": "house"
+ },
+ "168 woodward ave": {
+  "lat": 42.9891847,
+  "lng": -81.2712716,
   "precision": "house"
  },
  "171 broughdale ave": {
@@ -400,6 +441,11 @@
  "174 john st": {
   "lat": 42.9914507,
   "lng": -81.2529929,
+  "precision": "house"
+ },
+ "177 st. george": {
+  "lat": 42.9955836,
+  "lng": -81.255883,
   "precision": "house"
  },
  "18 kenneth ave": null,
@@ -503,6 +549,11 @@
   "lng": -81.2675168,
   "precision": "house"
  },
+ "207 bernard avenue": {
+  "lat": 43.011503,
+  "lng": -81.263559,
+  "precision": "house"
+ },
  "214 rathowen": {
   "lat": 42.9897543,
   "lng": -81.2676282,
@@ -584,9 +635,19 @@
   "lng": -81.2680231,
   "precision": "house"
  },
+ "230 bernard ave": {
+  "lat": 43.0124941,
+  "lng": -81.2619881,
+  "precision": "house"
+ },
  "231 rathowen": {
   "lat": 42.9907398,
   "lng": -81.2678697,
+  "precision": "house"
+ },
+ "232 epworth ave": {
+  "lat": 43.0108346,
+  "lng": -81.2601663,
   "precision": "house"
  },
  "234 bernard ave": {
@@ -656,6 +717,11 @@
   "lng": -81.278652,
   "precision": "house"
  },
+ "275 callaway rd": {
+  "lat": 43.0367851,
+  "lng": -81.2987953,
+  "precision": "street"
+ },
  "285 fleming drive": {
   "lat": 43.0173787,
   "lng": -81.1950661,
@@ -700,6 +766,11 @@
  "307 fanshawe park rd e": {
   "lat": 43.030145,
   "lng": -81.269921,
+  "precision": "house"
+ },
+ "310 central ave": {
+  "lat": 42.991505,
+  "lng": -81.246922,
   "precision": "house"
  },
  "310 grosvenor": {
@@ -770,6 +841,11 @@
  "38 beaufort st": {
   "lat": 42.9955081,
   "lng": -81.2648311,
+  "precision": "house"
+ },
+ "40 summit": {
+  "lat": 42.9922404,
+  "lng": -81.2697497,
   "precision": "house"
  },
  "400 fox ave": {
@@ -872,6 +948,11 @@
   "lng": -81.2540953,
   "precision": "house"
  },
+ "568 oxford street e": {
+  "lat": 43.0001427,
+  "lng": -81.2378837,
+  "precision": "house"
+ },
  "584 talbot": {
   "lat": 42.988615,
   "lng": -81.254318,
@@ -957,6 +1038,11 @@
   "lng": -81.2611964,
   "precision": "house"
  },
+ "70 woodward ave": {
+  "lat": 42.9861656,
+  "lng": -81.2698121,
+  "precision": "house"
+ },
  "72 empress ave": {
   "lat": 42.99031,
   "lng": -81.2631118,
@@ -985,6 +1071,11 @@
  "76 woodward ave": {
   "lat": 42.9865539,
   "lng": -81.2698652,
+  "precision": "house"
+ },
+ "778 monsarrat avenue": {
+  "lat": 43.0186949,
+  "lng": -81.2370436,
   "precision": "house"
  },
  "787 richmond": {
@@ -1028,6 +1119,16 @@
  "86 wilson avenue": {
   "lat": 42.9860972,
   "lng": -81.260384,
+  "precision": "house"
+ },
+ "865 adelaide street": {
+  "lat": 43.0028309,
+  "lng": -81.2386873,
+  "precision": "house"
+ },
+ "869 waterloo st": {
+  "lat": 42.999622,
+  "lng": -81.2497487,
   "precision": "house"
  },
  "90 oxford street west": {
@@ -1104,12 +1205,23 @@
  "ford crescent &  neville drive": null,
  "foster avenue & oxford street west": null,
  "huron st&audrey st": null,
+ "north centre rd": {
+  "lat": 43.0251659,
+  "lng": -81.2758574,
+  "precision": "street"
+ },
  "oxford & wharncliffe": null,
  "oxford st &colborne st.": null,
  "oxford st&colborne st": null,
  "oxford street west & wharncliffe road north": null,
  "paul street & wharncliffe road north": null,
  "rollscourt gardens & castlegrove blvd": null,
+ "sarnia road & western road": {
+  "lat": 43.001195,
+  "lng": -81.2765297,
+  "precision": "street"
+ },
+ "summit ave&oxford st w": null,
  "upper - 62 gunn street": null,
  "western rd & essex st": null,
  "western road & sarnia road": {
