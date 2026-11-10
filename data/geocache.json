@@ -373,6 +373,11 @@
   "lng": -81.2521028,
   "precision": "house"
  },
+ "1580 richmond st": {
+  "lat": 43.020748,
+  "lng": -81.279243,
+  "precision": "house"
+ },
  "1580 richmond st.": {
   "lat": 43.020748,
   "lng": -81.279243,
@@ -396,6 +401,11 @@
  "160 hyman street": {
   "lat": 42.9912348,
   "lng": -81.2519655,
+  "precision": "house"
+ },
+ "161 oxford st. w.": {
+  "lat": 42.9903683,
+  "lng": -81.2709702,
   "precision": "house"
  },
  "161 oxford street w": {
@@ -675,6 +685,11 @@
   "lng": -81.261301,
   "precision": "house"
  },
+ "242 huron st.": {
+  "lat": 43.007426,
+  "lng": -81.258398,
+  "precision": "house"
+ },
  "249 university cr": {
   "lat": 43.010195,
   "lng": -81.256522,
@@ -711,6 +726,11 @@
   "precision": "house"
  },
  "263 epworth st.": null,
+ "266 neville dr": {
+  "lat": 42.9993782,
+  "lng": -81.2813524,
+  "precision": "house"
+ },
  "27 summit upper": null,
  "272 trott drive": {
   "lat": 42.9937783,
@@ -826,6 +846,11 @@
  "355 wharncliffe road north": {
   "lat": 42.9960701,
   "lng": -81.2668284,
+  "precision": "house"
+ },
+ "357 wharncliffe rd. n.": {
+  "lat": 42.996169,
+  "lng": -81.2668753,
   "precision": "house"
  },
  "36 essex street, london on n6g 1b2": {
@@ -963,6 +988,11 @@
   "lng": -81.254318,
   "precision": "house"
  },
+ "60 beaufort st.": {
+  "lat": 42.9954924,
+  "lng": -81.2651913,
+  "precision": "street"
+ },
  "60 paperbirch crescent": {
   "lat": 42.9954415,
   "lng": -81.2957329,
@@ -1023,6 +1053,11 @@
   "lng": -81.2557265,
   "precision": "house"
  },
+ "69 wilson ave": {
+  "lat": 42.9853221,
+  "lng": -81.2601069,
+  "precision": "house"
+ },
  "695 richmond street": {
   "lat": 42.9934495,
   "lng": -81.2527159,
@@ -1056,6 +1091,11 @@
  "73 nottinghill cres": {
   "lat": 42.9498798,
   "lng": -81.2956536,
+  "precision": "house"
+ },
+ "73 riverside drive": {
+  "lat": 42.9829889,
+  "lng": -81.2617118,
   "precision": "house"
  },
  "733 wellington st": {
