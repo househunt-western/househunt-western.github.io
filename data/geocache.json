@@ -99,6 +99,11 @@
   "lng": -81.2536315,
   "precision": "house"
  },
+ "11 summit ave": {
+  "lat": 42.99111,
+  "lng": -81.2700287,
+  "precision": "house"
+ },
  "1100 sunset": {
   "lat": 43.005633,
   "lng": -81.264605,
@@ -307,6 +312,11 @@
   "lng": -81.2740394,
   "precision": "house"
  },
+ "147 mill street": {
+  "lat": 42.9918193,
+  "lng": -81.2547864,
+  "precision": "house"
+ },
  "15 shavian": {
   "lat": 43.021325,
   "lng": -81.280078,
@@ -321,6 +331,11 @@
  "1511 richmond st": {
   "lat": 43.017094,
   "lng": -81.273715,
+  "precision": "house"
+ },
+ "152 john st": {
+  "lat": 42.9911514,
+  "lng": -81.2540511,
   "precision": "house"
  },
  "152 wilson": {
@@ -356,6 +371,11 @@
  "156 hyman street": {
   "lat": 42.9911162,
   "lng": -81.2523024,
+  "precision": "house"
+ },
+ "156 meridene cres": {
+  "lat": 43.0284211,
+  "lng": -81.2604146,
   "precision": "house"
  },
  "1570 richmond": {
@@ -438,6 +458,11 @@
   "lng": -81.2712716,
   "precision": "house"
  },
+ "169 cambridge street": {
+  "lat": 42.9892767,
+  "lng": -81.2692023,
+  "precision": "house"
+ },
  "171 broughdale ave": {
   "lat": 43.007293,
   "lng": -81.26219,
@@ -467,6 +492,11 @@
  "184 huron st.": {
   "lat": 43.006398,
   "lng": -81.261755,
+  "precision": "house"
+ },
+ "184 paul st": {
+  "lat": 42.9875342,
+  "lng": -81.2679298,
   "precision": "house"
  },
  "187 cooper street": {
@@ -514,6 +544,11 @@
   "lng": -81.2548119,
   "precision": "house"
  },
+ "192 wharncliffe rd. n.": {
+  "lat": 42.9893804,
+  "lng": -81.2636795,
+  "precision": "house"
+ },
  "195 wharncliffe rd": {
   "lat": 42.9706159,
   "lng": -81.2620155,
@@ -527,6 +562,11 @@
  "197 rathowen street": {
   "lat": 42.9890746,
   "lng": -81.2670173,
+  "precision": "house"
+ },
+ "20 saunby st": {
+  "lat": 42.9941739,
+  "lng": -81.2630844,
   "precision": "house"
  },
  "200 sarnia rd": {
@@ -599,6 +639,11 @@
   "lng": -81.2715778,
   "precision": "house"
  },
+ "218 university cres": {
+  "lat": 43.0096823,
+  "lng": -81.2596435,
+  "precision": "house"
+ },
  "22 argyle street": {
   "lat": 42.9905538,
   "lng": -81.2613606,
@@ -618,6 +663,11 @@
  "223 sunnyside dr": {
   "lat": 43.0229418,
   "lng": -81.264516,
+  "precision": "house"
+ },
+ "224 rathnally st": {
+  "lat": 42.9906297,
+  "lng": -81.2669905,
   "precision": "house"
  },
  "225 bernard ave": {
@@ -675,6 +725,11 @@
   "lng": -81.261082,
   "precision": "house"
  },
+ "238 bernard": {
+  "lat": 43.0127214,
+  "lng": -81.26153,
+  "precision": "house"
+ },
  "239 raymond": {
   "lat": 43.0129412,
   "lng": -81.2614741,
@@ -713,6 +768,11 @@
  "255 trott drive": {
   "lat": 42.9939709,
   "lng": -81.2779144,
+  "precision": "house"
+ },
+ "257 sydenham st": {
+  "lat": 42.9969403,
+  "lng": -81.2520376,
   "precision": "house"
  },
  "26 gunn street": {
@@ -757,6 +817,11 @@
   "lng": -81.248949,
   "precision": "house"
  },
+ "293 pall mall": {
+  "lat": 42.9931315,
+  "lng": -81.2486895,
+  "precision": "house"
+ },
  "299 wolfe street": {
   "lat": 42.9901773,
   "lng": -81.246773,
@@ -788,6 +853,11 @@
   "lng": -81.269921,
   "precision": "house"
  },
+ "31 gunn st": {
+  "lat": 42.9941849,
+  "lng": -81.2625124,
+  "precision": "house"
+ },
  "310 central ave": {
   "lat": 42.991505,
   "lng": -81.246922,
@@ -808,15 +878,35 @@
   "lng": -81.1950661,
   "precision": "street"
  },
+ "315 wharncliffe rd. n.": {
+  "lat": 42.9945533,
+  "lng": -81.2660141,
+  "precision": "house"
+ },
  "325 wharncliffe rd n": {
   "lat": 42.9949551,
   "lng": -81.2662327,
+  "precision": "house"
+ },
+ "327 wharncliffe rd n": {
+  "lat": 42.9950343,
+  "lng": -81.2662753,
+  "precision": "house"
+ },
+ "33 britannia ave": {
+  "lat": 42.9839916,
+  "lng": -81.2708565,
   "precision": "house"
  },
  "339 fleming drive": {
   "lat": 43.0173787,
   "lng": -81.1950661,
   "precision": "street"
+ },
+ "34 gower st": {
+  "lat": 42.9926593,
+  "lng": -81.2684037,
+  "precision": "house"
  },
  "342 central ave": {
   "lat": 42.9919351,
@@ -861,6 +951,11 @@
  "36 essex street, london on, n6g 1b2": {
   "lat": 42.9949177,
   "lng": -81.268645,
+  "precision": "house"
+ },
+ "379 wharncliffe": {
+  "lat": 42.9972576,
+  "lng": -81.2673906,
   "precision": "house"
  },
  "38 beaufort st": {
@@ -1063,6 +1158,11 @@
   "lng": -81.2527159,
   "precision": "house"
  },
+ "698 talbot": {
+  "lat": 42.9917996,
+  "lng": -81.2561819,
+  "precision": "house"
+ },
  "698 talbot street": {
   "lat": 42.9917996,
   "lng": -81.2561819,
@@ -1231,6 +1331,11 @@
   "lng": -81.270681,
   "precision": "house"
  },
+ "990 medway park dr": {
+  "lat": 43.0188354,
+  "lng": -81.3228365,
+  "precision": "street"
+ },
  "a-302 wharncliffe road": {
   "lat": 42.9818877,
   "lng": -81.262607,
@@ -1276,6 +1381,7 @@
  },
  "wharncliffe rd & oxford st": null,
  "wharncliffe rd n & paul st": null,
+ "wharncliffe rd n&western rd": null,
  "wyatt st. & wharncliffe rd. s.": null,
  "wyatt street & wharncliffe road south": null
 }
