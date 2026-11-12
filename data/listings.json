@@ -1,6 +1,416 @@
 {
-  "last_run": "2026-11-11T18:32:04+00:00",
+  "last_run": "2026-11-12T18:46:20+00:00",
   "listings": [
+    {
+      "source": "western_och",
+      "source_id": "61386",
+      "url": "https://offcampus.uwo.ca/Listings/Details/61386",
+      "title": "40 Summit Ave",
+      "address": "40 Summit Ave, London, ON",
+      "neighbourhood": "Near South",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 2.0,
+      "price": 850,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 4250,
+      "price_per_person": 850,
+      "utilities_included": "yes",
+      "est_cost_per_person": 850,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "Utilities Incl",
+        "A/C",
+        "Transit",
+        "Laundry",
+        "Dishwasher",
+        "Parking(2)",
+        "Microwave"
+      ],
+      "distance_km": 1.81,
+      "site_distance_km": 2.8,
+      "lat": 42.9924714,
+      "lng": -81.268683,
+      "geo_precision": "house",
+      "walk_min_campus": 28,
+      "walk_min_huron": 31,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/61386-6.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/61386-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/61386-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/61386-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/61386-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/61386-5.jpg"
+      ],
+      "highlights": [
+        "2 bathrooms",
+        "Utilities included",
+        "Parking",
+        "Laundry"
+      ],
+      "heads_up": [],
+      "key": "western_och:61386",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64008",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64008",
+      "title": "214 Rathowen St",
+      "address": "214 Rathowen St, London, ON",
+      "neighbourhood": "Near South",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 5.5,
+      "price": 995,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 4975,
+      "price_per_person": 995,
+      "utilities_included": "no",
+      "est_cost_per_person": 1095,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": true,
+      "amenities": [
+        "A/C",
+        "Private Bathroom",
+        "Furniture Incl",
+        "Laundry",
+        "Dishwasher",
+        "Parking(3)",
+        "Microwave"
+      ],
+      "distance_km": 2.12,
+      "site_distance_km": 2.9,
+      "lat": 42.9897543,
+      "lng": -81.2676282,
+      "geo_precision": "house",
+      "walk_min_campus": 33,
+      "walk_min_huron": 36,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64008-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64008-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64008-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64008-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64008-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64008-6.jpg"
+      ],
+      "highlights": [
+        "Furnished",
+        "5.5 bathrooms",
+        "Parking",
+        "Laundry"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:64008",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64015",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64015",
+      "title": "1548 Richmond Street",
+      "address": "1548 Richmond Street, London, ON",
+      "neighbourhood": "Masonville",
+      "housing_type": "House",
+      "bedrooms": 4,
+      "baths": 3.5,
+      "price": 950,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 3800,
+      "price_per_person": 950,
+      "utilities_included": "no",
+      "est_cost_per_person": 1050,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "A/C",
+        "Private Bathroom",
+        "Transit",
+        "Laundry",
+        "Dishwasher",
+        "Parking(2)",
+        "Accessible"
+      ],
+      "distance_km": 1.28,
+      "site_distance_km": 1.6,
+      "lat": 43.019541,
+      "lng": -81.27742,
+      "geo_precision": "house",
+      "walk_min_campus": 20,
+      "walk_min_huron": 19,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64015-6.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64015-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64015-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64015-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64015-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64015-5.jpg"
+      ],
+      "highlights": [
+        "Ensuite bathrooms",
+        "Parking",
+        "Laundry",
+        "Dishwasher"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:64015",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64016",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64016",
+      "title": "35 McDonald Ave",
+      "address": "35 McDonald Ave, London, ON",
+      "neighbourhood": "Near South",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 2.0,
+      "price": 750,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 3750,
+      "price_per_person": 750,
+      "utilities_included": "no",
+      "est_cost_per_person": 850,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "Laundry",
+        "Dishwasher",
+        "Parking(2)"
+      ],
+      "distance_km": 1.63,
+      "site_distance_km": 2.4,
+      "lat": 42.9940939,
+      "lng": -81.2688278,
+      "geo_precision": "house",
+      "walk_min_campus": 25,
+      "walk_min_huron": 28,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64016-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64016-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64016-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64016-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64016-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64016-6.jpg"
+      ],
+      "highlights": [
+        "2 bathrooms",
+        "Parking",
+        "Laundry",
+        "Dishwasher"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:64016",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64017",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64017",
+      "title": "1546 Western Road",
+      "address": "1546 Western Road, London, ON",
+      "neighbourhood": "Masonville",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 3.0,
+      "price": 900,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 4500,
+      "price_per_person": 900,
+      "utilities_included": "no",
+      "est_cost_per_person": 1000,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "A/C",
+        "Transit",
+        "Laundry",
+        "Dishwasher",
+        "Parking(4)"
+      ],
+      "distance_km": 1.25,
+      "site_distance_km": 1.4,
+      "lat": 43.0190346,
+      "lng": -81.2784469,
+      "geo_precision": "house",
+      "walk_min_campus": 20,
+      "walk_min_huron": 18,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64017-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64017-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64017-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64017-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64017-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64017-6.jpg"
+      ],
+      "highlights": [
+        "3 bathrooms",
+        "Parking",
+        "Laundry",
+        "Dishwasher"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:64017",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64018",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64018",
+      "title": "184 Paul St",
+      "address": "184 Paul St, London, ON",
+      "neighbourhood": "Near South",
+      "housing_type": "House",
+      "bedrooms": 3,
+      "baths": 2.0,
+      "price": 1200,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 3600,
+      "price_per_person": 1200,
+      "utilities_included": "no",
+      "est_cost_per_person": 1300,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "A/C",
+        "Private Bathroom",
+        "Laundry",
+        "Dishwasher",
+        "Parking(1)",
+        "Microwave"
+      ],
+      "distance_km": 2.36,
+      "site_distance_km": 3.2,
+      "lat": 42.9875342,
+      "lng": -81.2679298,
+      "geo_precision": "house",
+      "walk_min_campus": 37,
+      "walk_min_huron": 39,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64018-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64018-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64018-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64018-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64018-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64018-6.jpg"
+      ],
+      "highlights": [
+        "2 bathrooms",
+        "Parking",
+        "Laundry",
+        "Dishwasher"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:64018",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
+    {
+      "source": "western_och",
+      "source_id": "64031",
+      "url": "https://offcampus.uwo.ca/Listings/Details/64031",
+      "title": "292 Sarnia Road",
+      "address": "292 Sarnia Road, London, ON",
+      "neighbourhood": "Near West",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 3.0,
+      "price": 1150,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 5750,
+      "price_per_person": 1150,
+      "utilities_included": "yes",
+      "est_cost_per_person": 1150,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "Utilities Incl",
+        "A/C",
+        "Private Bathroom",
+        "Laundry",
+        "Dishwasher",
+        "Parking(5)",
+        "Microwave",
+        "Internet Incl"
+      ],
+      "distance_km": 1.27,
+      "site_distance_km": 1.6,
+      "lat": 42.9998096,
+      "lng": -81.2835447,
+      "geo_precision": "house",
+      "walk_min_campus": 20,
+      "walk_min_huron": 17,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/64031-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64031-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64031-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64031-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64031-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/64031-6.jpg"
+      ],
+      "highlights": [
+        "3 bathrooms",
+        "Utilities included",
+        "Parking",
+        "Laundry"
+      ],
+      "heads_up": [],
+      "key": "western_och:64031",
+      "last_seen": "2026-11-12",
+      "active": true,
+      "also_listed": [],
+      "first_seen": "2026-11-12",
+      "is_new": true
+    },
     {
       "source": "western_och",
       "source_id": "27716",
@@ -49,11 +459,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27716",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -105,11 +515,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27728",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -161,11 +571,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27901",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -217,11 +627,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27921",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -273,11 +683,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27948",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -331,11 +741,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27957",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -386,11 +796,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:29022",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -442,11 +852,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:31736",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -501,11 +911,11 @@
       ],
       "heads_up": [],
       "key": "western_och:36704",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -557,11 +967,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:42045",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -614,11 +1024,11 @@
       ],
       "heads_up": [],
       "key": "western_och:47447",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -672,11 +1082,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:48277",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -727,11 +1137,11 @@
       ],
       "heads_up": [],
       "key": "western_och:48282",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -786,11 +1196,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:48489",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -847,11 +1257,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:49713",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -908,11 +1318,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51119",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -961,11 +1371,11 @@
       ],
       "heads_up": [],
       "key": "western_och:53651",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1019,11 +1429,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:56924",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1079,11 +1489,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:5738",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1139,11 +1549,11 @@
         "Some bedrooms in the basement"
       ],
       "key": "western_och:57780",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1191,11 +1601,11 @@
       ],
       "heads_up": [],
       "key": "western_och:61352",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1244,11 +1654,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63976",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1299,11 +1709,11 @@
       ],
       "heads_up": [],
       "key": "western_och:63977",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1357,11 +1767,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63982",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1416,11 +1826,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63983",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1473,11 +1883,11 @@
       ],
       "heads_up": [],
       "key": "western_och:63988",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1529,11 +1939,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63989",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1587,11 +1997,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63990",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1646,11 +2056,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63991",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1704,11 +2114,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63993",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1762,11 +2172,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63994",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1816,11 +2226,11 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63997",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1874,11 +2284,11 @@
       ],
       "heads_up": [],
       "key": "western_och:63999",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1926,11 +2336,11 @@
       ],
       "heads_up": [],
       "key": "western_och:64001",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -1983,11 +2393,11 @@
       ],
       "heads_up": [],
       "key": "western_och:64002",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-11",
-      "is_new": true
+      "is_new": false
     },
     {
       "source": "western_och",
@@ -2040,7 +2450,7 @@
       ],
       "heads_up": [],
       "key": "western_och:38951",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2100,7 +2510,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:43794",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2160,7 +2570,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:46418",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2216,7 +2626,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:48351",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2272,7 +2682,7 @@
       ],
       "heads_up": [],
       "key": "western_och:49414",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2329,7 +2739,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:49785",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2388,7 +2798,7 @@
       ],
       "heads_up": [],
       "key": "western_och:51573",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2452,7 +2862,7 @@
         "1 bathroom for 5 people"
       ],
       "key": "western_och:52692",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2510,7 +2920,7 @@
       ],
       "heads_up": [],
       "key": "western_och:53835",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2564,7 +2974,7 @@
       ],
       "heads_up": [],
       "key": "western_och:57895",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2621,7 +3031,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63876",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2676,7 +3086,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63877",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2732,7 +3142,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63878",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2790,7 +3200,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63886",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2845,7 +3255,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63887",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2903,7 +3313,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63888",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -2957,7 +3367,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63939",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3016,7 +3426,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63951",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3074,7 +3484,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63953",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3126,61 +3536,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63964",
-      "last_seen": "2026-11-11",
-      "active": true,
-      "also_listed": [],
-      "first_seen": "2026-11-09",
-      "is_new": false
-    },
-    {
-      "source": "western_och",
-      "source_id": "63969",
-      "url": "https://offcampus.uwo.ca/Listings/Details/63969",
-      "title": "207 Bernard Avenue",
-      "address": "207 Bernard Avenue, London, ON",
-      "neighbourhood": "Old North",
-      "housing_type": "House",
-      "bedrooms": 5,
-      "baths": 2.0,
-      "price": 900,
-      "price_basis": "per_room",
-      "price_assumed": false,
-      "total_rent": 4500,
-      "price_per_person": 900,
-      "utilities_included": "no",
-      "est_cost_per_person": 1000,
-      "lease_start": "2027-05-01",
-      "lease_term_months": 12,
-      "furnished": null,
-      "amenities": [
-        "Transit",
-        "Dishwasher"
-      ],
-      "distance_km": 0.86,
-      "site_distance_km": 1.2,
-      "lat": 43.011503,
-      "lng": -81.263559,
-      "geo_precision": "house",
-      "walk_min_campus": 13,
-      "walk_min_huron": 20,
-      "images": [
-        "https://offcampus.uwo.ca/assets/listing_images/63969-1.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/63969-2.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/63969-3.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/63969-4.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/63969-5.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/63969-6.jpg"
-      ],
-      "highlights": [
-        "2 bathrooms",
-        "Laundry",
-        "Dishwasher"
-      ],
-      "heads_up": [
-        "Utilities extra (about $100/person)"
-      ],
-      "key": "western_och:63969",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3237,7 +3593,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63970",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3294,7 +3650,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63971",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-09",
@@ -3348,7 +3704,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:49601",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-07",
@@ -3400,7 +3756,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:53686",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-07",
@@ -3457,7 +3813,7 @@
       ],
       "heads_up": [],
       "key": "western_och:59307",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-07",
@@ -3513,66 +3869,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:21985",
-      "last_seen": "2026-11-11",
-      "active": true,
-      "also_listed": [],
-      "first_seen": "2026-11-06",
-      "is_new": false
-    },
-    {
-      "source": "western_och",
-      "source_id": "30464",
-      "url": "https://offcampus.uwo.ca/Listings/Details/30464",
-      "title": "52 Empress Avenue",
-      "address": "52 Empress Avenue, London, ON",
-      "neighbourhood": "Near South",
-      "housing_type": "House",
-      "bedrooms": 4,
-      "baths": 2.0,
-      "price": 995,
-      "price_basis": "per_room",
-      "price_assumed": false,
-      "total_rent": 3980,
-      "price_per_person": 995,
-      "utilities_included": "yes",
-      "est_cost_per_person": 995,
-      "lease_start": "2027-05-01",
-      "lease_term_months": 12,
-      "furnished": null,
-      "amenities": [
-        "Utilities Incl",
-        "A/C",
-        "Transit",
-        "Laundry",
-        "Dishwasher",
-        "Parking(3)",
-        "Microwave",
-        "Internet Incl"
-      ],
-      "distance_km": 2.24,
-      "site_distance_km": 2.2,
-      "lat": 42.9902506,
-      "lng": -81.2614406,
-      "geo_precision": "house",
-      "walk_min_campus": 35,
-      "walk_min_huron": 39,
-      "images": [
-        "https://offcampus.uwo.ca/assets/listing_images/30464-1.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/30464-2.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/30464-3.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/30464-4.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/30464-5.jpg",
-        "https://offcampus.uwo.ca/assets/listing_images/30464-6.jpg"
-      ],
-      "highlights": [
-        "2 bathrooms",
-        "Utilities included",
-        "Parking",
-        "Laundry"
-      ],
-      "heads_up": [],
-      "key": "western_och:30464",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3632,7 +3929,7 @@
         "Some bedrooms in the basement"
       ],
       "key": "western_och:44305",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3692,7 +3989,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47673",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3748,7 +4045,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63922",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3806,7 +4103,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63925",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3866,7 +4163,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63926",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3926,7 +4223,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63928",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -3984,7 +4281,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63929",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -4043,7 +4340,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63931",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -4105,7 +4402,7 @@
         "Price didn't say per bedroom; assumed per room"
       ],
       "key": "western_och:63935",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -4167,7 +4464,7 @@
         "Price didn't say per bedroom; assumed per room"
       ],
       "key": "western_och:63936",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-06",
@@ -4221,7 +4518,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:60674",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-05",
@@ -4278,7 +4575,7 @@
         "Some bedrooms in the basement"
       ],
       "key": "western_och:61130",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-05",
@@ -4336,7 +4633,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:36073",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4394,7 +4691,7 @@
       ],
       "heads_up": [],
       "key": "western_och:39104",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4449,7 +4746,7 @@
       ],
       "heads_up": [],
       "key": "western_och:44210",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4510,7 +4807,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:53906",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4570,7 +4867,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63880",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4628,7 +4925,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63882",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4687,7 +4984,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63883",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4746,7 +5043,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63884",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4803,7 +5100,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63894",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4859,7 +5156,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63902",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4917,7 +5214,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63905",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-04",
@@ -4976,7 +5273,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:29481",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5035,7 +5332,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:29576",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5092,7 +5389,7 @@
       ],
       "heads_up": [],
       "key": "western_och:41739",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5152,7 +5449,7 @@
       ],
       "heads_up": [],
       "key": "western_och:41798",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5209,7 +5506,7 @@
       ],
       "heads_up": [],
       "key": "western_och:42699",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5270,7 +5567,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63874",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-03",
@@ -5329,7 +5626,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47653",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-02",
@@ -5390,7 +5687,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:60808",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-02",
@@ -5448,7 +5745,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63836",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-02",
@@ -5505,7 +5802,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63850",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-02",
@@ -5562,7 +5859,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63864",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-11-02",
@@ -5620,7 +5917,7 @@
       ],
       "heads_up": [],
       "key": "western_och:20270",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5677,7 +5974,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:29686",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5732,7 +6029,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:39097",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5788,7 +6085,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:42005",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5844,7 +6141,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:43130",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5900,7 +6197,7 @@
       ],
       "heads_up": [],
       "key": "western_och:44674",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -5955,7 +6252,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:50245",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6013,7 +6310,7 @@
       ],
       "heads_up": [],
       "key": "western_och:58994",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6075,7 +6372,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:61425",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6133,7 +6430,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63002",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6190,7 +6487,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63842",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6249,7 +6546,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63843",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6304,7 +6601,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63854",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-31",
@@ -6360,7 +6657,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:35912",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6413,7 +6710,7 @@
       ],
       "heads_up": [],
       "key": "western_och:39378",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6471,7 +6768,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:39712",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6529,7 +6826,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63825",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6589,7 +6886,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63827",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6647,7 +6944,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63829",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6707,7 +7004,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63830",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6763,7 +7060,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:936",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-30",
@@ -6819,7 +7116,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:46042",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -6877,7 +7174,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47306",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -6932,7 +7229,7 @@
       ],
       "heads_up": [],
       "key": "western_och:50959",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -6988,7 +7285,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:58315",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -7046,7 +7343,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63812",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -7104,7 +7401,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63818",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-29",
@@ -7163,7 +7460,7 @@
       ],
       "heads_up": [],
       "key": "western_och:41725",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7221,7 +7518,7 @@
       ],
       "heads_up": [],
       "key": "western_och:57796",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7273,7 +7570,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:62751",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7332,7 +7629,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63748",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7390,7 +7687,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63794",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7448,7 +7745,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63795",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7506,7 +7803,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63805",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7563,7 +7860,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63806",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7620,7 +7917,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63810",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-28",
@@ -7675,7 +7972,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:27906",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -7732,7 +8029,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:36556",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -7789,7 +8086,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:41838",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -7844,7 +8141,7 @@
       ],
       "heads_up": [],
       "key": "western_och:45771",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -7900,7 +8197,7 @@
       ],
       "heads_up": [],
       "key": "western_och:45772",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -7955,7 +8252,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:45879",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8011,7 +8308,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:45984",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8068,7 +8365,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:49303",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8124,7 +8421,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:58316",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8179,7 +8476,7 @@
         "No parking"
       ],
       "key": "western_och:63208",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8236,7 +8533,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63716",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8294,7 +8591,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63730",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8351,7 +8648,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63738",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8407,7 +8704,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63752",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8465,7 +8762,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63753",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8523,7 +8820,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63755",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8583,7 +8880,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:63756",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8637,7 +8934,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63764",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8696,7 +8993,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63767",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8753,7 +9050,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63768",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8809,7 +9106,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63769",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8866,7 +9163,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63772",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8923,7 +9220,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63773",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -8980,7 +9277,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63780",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -9038,7 +9335,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63783",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -9094,7 +9391,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63784",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -9152,7 +9449,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63785",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-27",
@@ -9208,7 +9505,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:50700",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-24",
@@ -9262,7 +9559,7 @@
       ],
       "heads_up": [],
       "key": "western_och:56978",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-24",
@@ -9317,7 +9614,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:56980",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-24",
@@ -9379,7 +9676,7 @@
       ],
       "heads_up": [],
       "key": "western_och:60267",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-24",
@@ -9436,7 +9733,7 @@
       ],
       "heads_up": [],
       "key": "western_och:19192",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9498,7 +9795,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:29633",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9555,7 +9852,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:31650",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9616,7 +9913,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:33207",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9672,7 +9969,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:33262",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9726,7 +10023,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:39085",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9782,7 +10079,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:41799",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9837,7 +10134,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:41875",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9896,7 +10193,7 @@
       ],
       "heads_up": [],
       "key": "western_och:42077",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -9956,7 +10253,7 @@
       ],
       "heads_up": [],
       "key": "western_och:44076",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10015,7 +10312,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:44123",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10069,7 +10366,7 @@
       ],
       "heads_up": [],
       "key": "western_och:45767",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10129,7 +10426,7 @@
       ],
       "heads_up": [],
       "key": "western_och:46432",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10184,7 +10481,7 @@
       ],
       "heads_up": [],
       "key": "western_och:46727",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10243,7 +10540,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47531",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10302,7 +10599,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47778",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10360,7 +10657,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:47951",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10417,7 +10714,7 @@
       ],
       "heads_up": [],
       "key": "western_och:47957",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10475,7 +10772,7 @@
       ],
       "heads_up": [],
       "key": "western_och:47962",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10532,7 +10829,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:47995",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10594,7 +10891,7 @@
         "Some bedrooms in the basement"
       ],
       "key": "western_och:48445",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10652,7 +10949,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:48843",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10710,7 +11007,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:49825",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10768,7 +11065,7 @@
       ],
       "heads_up": [],
       "key": "western_och:50424",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10829,7 +11126,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:50990",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10888,7 +11185,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51113",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -10950,7 +11247,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51432",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11013,7 +11310,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51435",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11075,7 +11372,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51436",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11138,7 +11435,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51437",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11201,7 +11498,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51440",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11264,7 +11561,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51442",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11327,7 +11624,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:51829",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11387,7 +11684,7 @@
       ],
       "heads_up": [],
       "key": "western_och:51878",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11449,7 +11746,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:52346",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11511,7 +11808,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:53024",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11568,7 +11865,7 @@
       ],
       "heads_up": [],
       "key": "western_och:53451",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11627,7 +11924,7 @@
       ],
       "heads_up": [],
       "key": "western_och:53779",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11686,7 +11983,7 @@
       ],
       "heads_up": [],
       "key": "western_och:54272",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11747,7 +12044,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:55102",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11808,7 +12105,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:55275",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11868,7 +12165,7 @@
         "Some bedrooms in the basement"
       ],
       "key": "western_och:57870",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11928,7 +12225,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:58362",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -11987,7 +12284,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:58534",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12043,7 +12340,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:60343",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12100,7 +12397,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:60639",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12161,7 +12458,7 @@
         "Price didn't say per bedroom; assumed per room"
       ],
       "key": "western_och:61304",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12220,7 +12517,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:61704",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12280,7 +12577,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:62564",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12341,7 +12638,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:62815",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12401,7 +12698,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63411",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12454,7 +12751,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63436",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12513,7 +12810,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63442",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12572,7 +12869,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63460",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12630,7 +12927,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63464",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12687,7 +12984,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63475",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12746,7 +13043,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63499",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12800,7 +13097,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63501",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12858,7 +13155,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63502",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12917,7 +13214,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63504",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -12977,7 +13274,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63505",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13033,7 +13330,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63506",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13090,7 +13387,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63507",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13149,7 +13446,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63508",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13207,7 +13504,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63515",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13263,7 +13560,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63522",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13321,7 +13618,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:63523",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13376,7 +13673,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63532",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13435,7 +13732,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63533",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13497,7 +13794,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63537",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13559,7 +13856,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63538",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13622,7 +13919,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63539",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13681,7 +13978,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63557",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13738,7 +14035,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63562",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13794,7 +14091,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63563",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13852,7 +14149,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63568",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13907,7 +14204,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63569",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -13963,7 +14260,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63571",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14021,7 +14318,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63603",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14072,7 +14369,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63604",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14132,7 +14429,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63606",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14191,7 +14488,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63608",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14252,7 +14549,7 @@
         "Cheap for the whole place; price may be per person. Check the ad"
       ],
       "key": "western_och:63613",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14268,13 +14565,13 @@
       "housing_type": "Apartment",
       "bedrooms": 3,
       "baths": 2.0,
-      "price": 1250,
+      "price": 1195,
       "price_basis": "per_room",
       "price_assumed": false,
-      "total_rent": 3750,
-      "price_per_person": 1250,
+      "total_rent": 3585,
+      "price_per_person": 1195,
       "utilities_included": "yes",
-      "est_cost_per_person": 1250,
+      "est_cost_per_person": 1195,
       "lease_start": "2027-05-01",
       "lease_term_months": 12,
       "furnished": true,
@@ -14310,7 +14607,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63616",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14366,7 +14663,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63632",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14425,7 +14722,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:63633",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14483,7 +14780,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63644",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14541,7 +14838,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:63645",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14597,7 +14894,7 @@
         "1 bathroom for 4 people"
       ],
       "key": "western_och:63650",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14653,7 +14950,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63657",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14709,7 +15006,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63658",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14765,7 +15062,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63689",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14809,7 +15106,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63694",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14866,7 +15163,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63697",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14924,7 +15221,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63709",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -14984,7 +15281,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63711",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -15043,7 +15340,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63714",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -15088,7 +15385,7 @@
       ],
       "heads_up": [],
       "key": "western_och:63720",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -15147,7 +15444,7 @@
         "Utilities extra (about $100/person)"
       ],
       "key": "western_och:63739",
-      "last_seen": "2026-11-11",
+      "last_seen": "2026-11-12",
       "active": true,
       "also_listed": [],
       "first_seen": "2026-10-22",
@@ -15209,6 +15506,119 @@
       "active": false,
       "also_listed": [],
       "first_seen": "2026-11-09",
+      "is_new": false
+    },
+    {
+      "source": "western_och",
+      "source_id": "63969",
+      "url": "https://offcampus.uwo.ca/Listings/Details/63969",
+      "title": "207 Bernard Avenue",
+      "address": "207 Bernard Avenue, London, ON",
+      "neighbourhood": "Old North",
+      "housing_type": "House",
+      "bedrooms": 5,
+      "baths": 2.0,
+      "price": 900,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 4500,
+      "price_per_person": 900,
+      "utilities_included": "no",
+      "est_cost_per_person": 1000,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "Transit",
+        "Dishwasher"
+      ],
+      "distance_km": 0.86,
+      "site_distance_km": 1.2,
+      "lat": 43.011503,
+      "lng": -81.263559,
+      "geo_precision": "house",
+      "walk_min_campus": 13,
+      "walk_min_huron": 20,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/63969-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/63969-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/63969-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/63969-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/63969-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/63969-6.jpg"
+      ],
+      "highlights": [
+        "2 bathrooms",
+        "Laundry",
+        "Dishwasher"
+      ],
+      "heads_up": [
+        "Utilities extra (about $100/person)"
+      ],
+      "key": "western_och:63969",
+      "last_seen": "2026-11-11",
+      "active": false,
+      "also_listed": [],
+      "first_seen": "2026-11-09",
+      "is_new": false
+    },
+    {
+      "source": "western_och",
+      "source_id": "30464",
+      "url": "https://offcampus.uwo.ca/Listings/Details/30464",
+      "title": "52 Empress Avenue",
+      "address": "52 Empress Avenue, London, ON",
+      "neighbourhood": "Near South",
+      "housing_type": "House",
+      "bedrooms": 4,
+      "baths": 2.0,
+      "price": 995,
+      "price_basis": "per_room",
+      "price_assumed": false,
+      "total_rent": 3980,
+      "price_per_person": 995,
+      "utilities_included": "yes",
+      "est_cost_per_person": 995,
+      "lease_start": "2027-05-01",
+      "lease_term_months": 12,
+      "furnished": null,
+      "amenities": [
+        "Utilities Incl",
+        "A/C",
+        "Transit",
+        "Laundry",
+        "Dishwasher",
+        "Parking(3)",
+        "Microwave",
+        "Internet Incl"
+      ],
+      "distance_km": 2.24,
+      "site_distance_km": 2.2,
+      "lat": 42.9902506,
+      "lng": -81.2614406,
+      "geo_precision": "house",
+      "walk_min_campus": 35,
+      "walk_min_huron": 39,
+      "images": [
+        "https://offcampus.uwo.ca/assets/listing_images/30464-1.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/30464-2.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/30464-3.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/30464-4.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/30464-5.jpg",
+        "https://offcampus.uwo.ca/assets/listing_images/30464-6.jpg"
+      ],
+      "highlights": [
+        "2 bathrooms",
+        "Utilities included",
+        "Parking",
+        "Laundry"
+      ],
+      "heads_up": [],
+      "key": "western_och:30464",
+      "last_seen": "2026-11-11",
+      "active": false,
+      "also_listed": [],
+      "first_seen": "2026-11-06",
       "is_new": false
     },
     {

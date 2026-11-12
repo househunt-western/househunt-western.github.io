@@ -358,7 +358,17 @@
   "lng": -81.2794553,
   "precision": "house"
  },
+ "1546 western road": {
+  "lat": 43.0190346,
+  "lng": -81.2784469,
+  "precision": "house"
+ },
  "1548 richmond st": {
+  "lat": 43.019541,
+  "lng": -81.27742,
+  "precision": "house"
+ },
+ "1548 richmond street": {
   "lat": 43.019541,
   "lng": -81.27742,
   "precision": "house"
@@ -609,6 +619,11 @@
   "lng": -81.2676282,
   "precision": "house"
  },
+ "214 rathowen st": {
+  "lat": 42.9897543,
+  "lng": -81.2676282,
+  "precision": "house"
+ },
  "214 raymond": {
   "lat": 43.012782,
   "lng": -81.2635835,
@@ -817,6 +832,11 @@
   "lng": -81.248949,
   "precision": "house"
  },
+ "292 sarnia road": {
+  "lat": 42.9998096,
+  "lng": -81.2835447,
+  "precision": "house"
+ },
  "293 pall mall": {
   "lat": 42.9931315,
   "lng": -81.2486895,
@@ -928,6 +948,11 @@
   "lng": -81.2471499,
   "precision": "house"
  },
+ "35 mcdonald ave": {
+  "lat": 42.9940939,
+  "lng": -81.2688278,
+  "precision": "house"
+ },
  "354 windermere road": {
   "lat": 43.0157051,
   "lng": -81.2745461,
@@ -966,6 +991,11 @@
  "40 summit": {
   "lat": 42.9922404,
   "lng": -81.2697497,
+  "precision": "house"
+ },
+ "40 summit ave": {
+  "lat": 42.9924714,
+  "lng": -81.268683,
   "precision": "house"
  },
  "400 fox ave": {
