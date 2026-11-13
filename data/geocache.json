@@ -39,6 +39,11 @@
   "lng": -81.2647922,
   "precision": "house"
  },
+ "1055 patricia st": {
+  "lat": 43.009809,
+  "lng": -81.256274,
+  "precision": "house"
+ },
  "1058 richmond": {
   "lat": 43.004757,
   "lng": -81.257761,
@@ -238,6 +243,11 @@
  "133 ann street": {
   "lat": 42.992795,
   "lng": -81.2560347,
+  "precision": "house"
+ },
+ "133 st james street": {
+  "lat": 42.9965049,
+  "lng": -81.2578751,
   "precision": "house"
  },
  "134.5 mill street": {
@@ -524,6 +534,11 @@
   "lng": -81.2642876,
   "precision": "house"
  },
+ "19 rollscourt gardens": {
+  "lat": 42.9952086,
+  "lng": -81.2911477,
+  "precision": "house"
+ },
  "190 cooper": {
   "lat": 42.9889747,
   "lng": -81.265003,
@@ -547,6 +562,11 @@
  "191 cooper street": {
   "lat": 42.9891819,
   "lng": -81.2648593,
+  "precision": "house"
+ },
+ "191 rathowen": {
+  "lat": 42.9886284,
+  "lng": -81.2667824,
   "precision": "house"
  },
  "191 sydenham st.": {
@@ -733,6 +753,11 @@
  "235 university cres": {
   "lat": 43.0099552,
   "lng": -81.2579698,
+  "precision": "house"
+ },
+ "236 bernard": {
+  "lat": 43.0126646,
+  "lng": -81.2616446,
   "precision": "house"
  },
  "236 raymond ave.": {
@@ -988,6 +1013,11 @@
   "lng": -81.2648311,
   "precision": "house"
  },
+ "4-15 shavian": {
+  "lat": 43.0211517,
+  "lng": -81.2834053,
+  "precision": "street"
+ },
  "40 summit": {
   "lat": 42.9922404,
   "lng": -81.2697497,
@@ -1016,6 +1046,11 @@
  "427 coombs avenue": {
   "lat": 42.9962358,
   "lng": -81.2806665,
+  "precision": "house"
+ },
+ "429 oxford": {
+  "lat": 42.9866257,
+  "lng": -81.2837043,
   "precision": "house"
  },
  "44 essex st": {
@@ -1058,9 +1093,19 @@
   "lng": -81.2537211,
   "precision": "house"
  },
+ "519 canterbury": {
+  "lat": 43.0168533,
+  "lng": -81.2761381,
+  "precision": "house"
+ },
  "52 empress avenue": {
   "lat": 42.9902506,
   "lng": -81.2614406,
+  "precision": "house"
+ },
+ "526 kininvie drive": {
+  "lat": 43.000272,
+  "lng": -81.283506,
   "precision": "house"
  },
  "52b argyle st.": {
@@ -1268,10 +1313,20 @@
   "lng": -81.2680239,
   "precision": "house"
  },
+ "8 gower st": {
+  "lat": 42.991376,
+  "lng": -81.2680239,
+  "precision": "house"
+ },
  "80 essex ave": null,
  "80 huron street": {
   "lat": 43.0050373,
   "lng": -81.2663913,
+  "precision": "house"
+ },
+ "81 rollingwood cir": {
+  "lat": 43.001429,
+  "lng": -81.2903677,
   "precision": "house"
  },
  "82 huron street": {
