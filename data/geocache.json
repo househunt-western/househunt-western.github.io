@@ -4,6 +4,11 @@
   "lng": -81.2466033,
   "precision": "street"
  },
+ "10 orkney crescent": {
+  "lat": 43.0210296,
+  "lng": -81.264915,
+  "precision": "house"
+ },
  "100 albion street": {
   "lat": 42.9890386,
   "lng": -81.261784,
@@ -332,6 +337,11 @@
   "lng": -81.280078,
   "precision": "house"
  },
+ "15 shavian blvd": {
+  "lat": 43.021325,
+  "lng": -81.280078,
+  "precision": "house"
+ },
  "15 stirrup court": null,
  "150 mill street": {
   "lat": 42.9920308,
@@ -346,6 +356,11 @@
  "152 john st": {
   "lat": 42.9911514,
   "lng": -81.2540511,
+  "precision": "house"
+ },
+ "152 regent st.": {
+  "lat": 43.004698,
+  "lng": -81.262689,
   "precision": "house"
  },
  "152 wilson": {
@@ -519,9 +534,19 @@
   "lng": -81.2679298,
   "precision": "house"
  },
+ "187 cooper st": {
+  "lat": 42.9888888,
+  "lng": -81.2646988,
+  "precision": "house"
+ },
  "187 cooper street": {
   "lat": 42.9888888,
   "lng": -81.2646988,
+  "precision": "house"
+ },
+ "188 cambridge st": {
+  "lat": 42.9888851,
+  "lng": -81.2699201,
   "precision": "house"
  },
  "188 cambridge street": {
@@ -582,6 +607,11 @@
  "195 wharncliffe rd": {
   "lat": 42.9706159,
   "lng": -81.2620155,
+  "precision": "house"
+ },
+ "197 cooper st": {
+  "lat": 42.9896214,
+  "lng": -81.2651,
   "precision": "house"
  },
  "197 huron": {
@@ -1088,6 +1118,11 @@
   "lng": -81.2698883,
   "precision": "house"
  },
+ "50 chapman court": {
+  "lat": 42.9938437,
+  "lng": -81.3009525,
+  "precision": "house"
+ },
  "51 st. george street": {
   "lat": 42.9914874,
   "lng": -81.2537211,
@@ -1146,6 +1181,11 @@
  "568 oxford street e": {
   "lat": 43.0001427,
   "lng": -81.2378837,
+  "precision": "house"
+ },
+ "574 piccadilly st": {
+  "lat": 42.9986324,
+  "lng": -81.2380245,
   "precision": "house"
  },
  "584 talbot": {
