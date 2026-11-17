@@ -104,6 +104,11 @@
   "lng": -81.2658568,
   "precision": "house"
  },
+ "11 oxford street east": {
+  "lat": 43.0081174,
+  "lng": -81.2097339,
+  "precision": "street"
+ },
  "11 st george street": {
   "lat": 42.9908686,
   "lng": -81.2536315,
@@ -157,6 +162,11 @@
  "115 wilson": {
   "lat": 42.9872428,
   "lng": -81.2601994,
+  "precision": "house"
+ },
+ "116 woodward": {
+  "lat": 42.9871323,
+  "lng": -81.2701707,
   "precision": "house"
  },
  "119 albert st": {
@@ -330,6 +340,11 @@
  "147 mill street": {
   "lat": 42.9918193,
   "lng": -81.2547864,
+  "precision": "house"
+ },
+ "148 ann street": {
+  "lat": 42.9930182,
+  "lng": -81.2559092,
   "precision": "house"
  },
  "15 shavian": {
@@ -1228,6 +1243,11 @@
   "lng": -81.2666412,
   "precision": "house"
  },
+ "64 gunn street": {
+  "lat": 42.9952053,
+  "lng": -81.2632976,
+  "precision": "house"
+ },
  "640 talbot": {
   "lat": 42.990251,
   "lng": -81.2553995,
@@ -1236,6 +1256,11 @@
  "642 richmond street": {
   "lat": 42.991845,
   "lng": -81.2510928,
+  "precision": "house"
+ },
+ "644 richmond st": {
+  "lat": 42.9919267,
+  "lng": -81.2511358,
   "precision": "house"
  },
  "646 middlewoods drive": {
@@ -1291,6 +1316,11 @@
  "70 woodward ave": {
   "lat": 42.9861656,
   "lng": -81.2698121,
+  "precision": "house"
+ },
+ "718 talbot": {
+  "lat": 42.9924113,
+  "lng": -81.2564886,
   "precision": "house"
  },
  "72 empress ave": {
@@ -1396,6 +1426,11 @@
   "lng": -81.2497487,
   "precision": "house"
  },
+ "9 oxford street east": {
+  "lat": 43.0080122,
+  "lng": -81.2105008,
+  "precision": "street"
+ },
  "90 oxford street west": {
   "lat": 42.9913423,
   "lng": -81.2666146,
@@ -1414,6 +1449,11 @@
  "918 waterloo street": {
   "lat": 43.0036352,
   "lng": -81.251569,
+  "precision": "house"
+ },
+ "92 chepstow close": {
+  "lat": 42.9985772,
+  "lng": -81.284724,
   "precision": "house"
  },
  "925": {
