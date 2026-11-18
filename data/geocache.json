@@ -4,6 +4,11 @@
   "lng": -81.2466033,
   "precision": "street"
  },
+ "10 barrington": {
+  "lat": 42.9878225,
+  "lng": -81.2634307,
+  "precision": "house"
+ },
  "10 orkney crescent": {
   "lat": 43.0210296,
   "lng": -81.264915,
@@ -240,6 +245,11 @@
   "lng": -81.2550389,
   "precision": "house"
  },
+ "129 mill street": {
+  "lat": 42.9915896,
+  "lng": -81.2555998,
+  "precision": "house"
+ },
  "13 cumberland crescent": {
   "lat": 43.0309369,
   "lng": -81.2655851,
@@ -408,6 +418,7 @@
   "lng": -81.27742,
   "precision": "house"
  },
+ "1548 richmond streeet": null,
  "1548 richmond street": {
   "lat": 43.019541,
   "lng": -81.27742,
@@ -521,6 +532,11 @@
  "172 john st": {
   "lat": 42.9914268,
   "lng": -81.253078,
+  "precision": "house"
+ },
+ "173 cambridge street": {
+  "lat": 42.9892285,
+  "lng": -81.269372,
   "precision": "house"
  },
  "174 john st": {
@@ -639,6 +655,11 @@
   "lng": -81.2670173,
   "precision": "house"
  },
+ "20 rollscourt gardens": {
+  "lat": 42.9951532,
+  "lng": -81.2909053,
+  "precision": "house"
+ },
  "20 saunby st": {
   "lat": 42.9941739,
   "lng": -81.2630844,
@@ -702,6 +723,11 @@
  "216 rathowen street": {
   "lat": 42.9898895,
   "lng": -81.2676971,
+  "precision": "house"
+ },
+ "217 castlegrove blvd.": {
+  "lat": 42.9947968,
+  "lng": -81.2852821,
   "precision": "house"
  },
  "217 sarnia rd": {
@@ -853,6 +879,11 @@
  "255 trott drive": {
   "lat": 42.9939709,
   "lng": -81.2779144,
+  "precision": "house"
+ },
+ "257 huron street": {
+  "lat": 43.007515,
+  "lng": -81.257149,
   "precision": "house"
  },
  "257 sydenham st": {
@@ -1328,6 +1359,11 @@
   "lng": -81.2631118,
   "precision": "house"
  },
+ "724 talbot st": {
+  "lat": 42.9925948,
+  "lng": -81.2565807,
+  "precision": "house"
+ },
  "73 gunn st": {
   "lat": 42.9957335,
   "lng": -81.2633168,
@@ -1411,6 +1447,11 @@
  },
  "830 talbot street (main)": null,
  "830 talbot street (upper)": null,
+ "84 wilson avenue": {
+  "lat": 42.9858338,
+  "lng": -81.2603707,
+  "precision": "house"
+ },
  "86 wilson avenue": {
   "lat": 42.9860972,
   "lng": -81.260384,
@@ -1424,6 +1465,11 @@
  "869 waterloo st": {
   "lat": 42.999622,
   "lng": -81.2497487,
+  "precision": "house"
+ },
+ "88 blackfriars": {
+  "lat": 42.9892432,
+  "lng": -81.2631658,
   "precision": "house"
  },
  "9 oxford street east": {
@@ -1464,6 +1510,11 @@
  "95 edgar": {
   "lat": 42.9971209,
   "lng": -81.2825241,
+  "precision": "house"
+ },
+ "95 essex st": {
+  "lat": 42.9939841,
+  "lng": -81.2729747,
   "precision": "house"
  },
  "96 doon drive": {
@@ -1511,6 +1562,7 @@
  "castlegrove pl & castlegrove blvd": null,
  "colborne st & grosvenor st": null,
  "colborne st & oxford st east": null,
+ "empress ave & wharncliffe rd n": null,
  "empress avenue  & wharncliffe road north": null,
  "ford crescent &  neville drive": null,
  "foster avenue & oxford street west": null,
