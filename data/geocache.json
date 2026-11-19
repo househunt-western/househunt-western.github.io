@@ -1229,6 +1229,11 @@
   "lng": -81.2378837,
   "precision": "house"
  },
+ "57 gunn street": {
+  "lat": 42.9951227,
+  "lng": -81.2629993,
+  "precision": "house"
+ },
  "574 piccadilly st": {
   "lat": 42.9986324,
   "lng": -81.2380245,
@@ -1387,6 +1392,11 @@
  "733 wellington street": {
   "lat": 42.9959208,
   "lng": -81.2510384,
+  "precision": "house"
+ },
+ "76 gunn st": {
+  "lat": 42.9957332,
+  "lng": -81.2635721,
   "precision": "house"
  },
  "76 woodward ave": {
