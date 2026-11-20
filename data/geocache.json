@@ -393,6 +393,11 @@
   "lng": -81.2605083,
   "precision": "house"
  },
+ "153 sydenham st": {
+  "lat": 42.9957865,
+  "lng": -81.2560514,
+  "precision": "house"
+ },
  "1532 western road": {
   "lat": 43.0175313,
   "lng": -81.2776559,
@@ -918,6 +923,11 @@
   "lng": -81.2987953,
   "precision": "street"
  },
+ "281 huron st": {
+  "lat": 43.007643,
+  "lng": -81.256719,
+  "precision": "house"
+ },
  "285 fleming drive": {
   "lat": 43.0173787,
   "lng": -81.1950661,
@@ -965,6 +975,11 @@
   "precision": "house"
  },
  "302 wharncliffe": {
+  "lat": 42.9937026,
+  "lng": -81.2659312,
+  "precision": "house"
+ },
+ "302 wharncliffe road": {
   "lat": 42.9937026,
   "lng": -81.2659312,
   "precision": "house"
@@ -1194,6 +1209,11 @@
   "lng": -81.2612029,
   "precision": "street"
  },
+ "534 cheapside street": {
+  "lat": 43.005289,
+  "lng": -81.2439158,
+  "precision": "house"
+ },
  "536 canterbury": {
   "lat": 43.017995,
   "lng": -81.2764909,
@@ -1247,6 +1267,11 @@
  "584 talbot st": {
   "lat": 42.988615,
   "lng": -81.254318,
+  "precision": "house"
+ },
+ "596 waterloo street": {
+  "lat": 42.9919377,
+  "lng": -81.2455219,
   "precision": "house"
  },
  "60 beaufort st.": {
@@ -1322,6 +1347,11 @@
  "666 talbot st": {
   "lat": 42.9908972,
   "lng": -81.2557265,
+  "precision": "house"
+ },
+ "670 talbot st": {
+  "lat": 42.9910496,
+  "lng": -81.2558036,
   "precision": "house"
  },
  "69 wilson ave": {
@@ -1407,6 +1437,11 @@
  "778 monsarrat avenue": {
   "lat": 43.0186949,
   "lng": -81.2370436,
+  "precision": "house"
+ },
+ "779 richmond street": {
+  "lat": 42.9962919,
+  "lng": -81.2538011,
   "precision": "house"
  },
  "787 richmond": {
@@ -1569,6 +1604,11 @@
  },
  "argyle st and empress ave": null,
  "argyle street & empress avenue": null,
+ "broughdale ave": {
+  "lat": 43.0086985,
+  "lng": -81.2589092,
+  "precision": "street"
+ },
  "castlegrove pl & castlegrove blvd": null,
  "colborne st & grosvenor st": null,
  "colborne st & oxford st east": null,
@@ -1593,6 +1633,7 @@
   "lng": -81.2765297,
   "precision": "street"
  },
+ "st george st  & mill st": null,
  "summit ave&oxford st w": null,
  "upper - 62 gunn street": null,
  "western rd & essex st": null,
