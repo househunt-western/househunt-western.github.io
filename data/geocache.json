@@ -670,6 +670,11 @@
   "lng": -81.2630844,
   "precision": "house"
  },
+ "200 rathnally street": {
+  "lat": 42.9894655,
+  "lng": -81.2663638,
+  "precision": "house"
+ },
  "200 sarnia rd": {
   "lat": 43.0007596,
   "lng": -81.2803871,
@@ -1122,6 +1127,11 @@
  "400 fox ave": {
   "lat": 42.9950623,
   "lng": -81.2791906,
+  "precision": "house"
+ },
+ "407 rippleton road": {
+  "lat": 42.994724,
+  "lng": -81.2928948,
   "precision": "house"
  },
  "41 edgar drive": {
