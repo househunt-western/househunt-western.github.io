@@ -928,6 +928,11 @@
   "lng": -81.2987953,
   "precision": "street"
  },
+ "279 walmer grove": {
+  "lat": 42.9940876,
+  "lng": -81.2852483,
+  "precision": "house"
+ },
  "281 huron st": {
   "lat": 43.007643,
   "lng": -81.256719,
