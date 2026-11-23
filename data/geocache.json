@@ -39,6 +39,11 @@
   "lng": -81.2556396,
   "precision": "house"
  },
+ "1035 brough street": {
+  "lat": 43.0083897,
+  "lng": -81.2588047,
+  "precision": "house"
+ },
  "1037 richmond street": {
   "lat": 43.0033998,
   "lng": -81.257442,
@@ -199,6 +204,11 @@
   "lng": -81.2631145,
   "precision": "house"
  },
+ "1202 richmond st": {
+  "lat": 43.011147,
+  "lng": -81.263258,
+  "precision": "house"
+ },
  "121 wharncliffe rd n": {
   "lat": 42.9865216,
   "lng": -81.2627556,
@@ -260,6 +270,11 @@
   "lng": -81.2673569,
   "precision": "house"
  },
+ "130 st george st": {
+  "lat": 42.994171,
+  "lng": -81.254827,
+  "precision": "house"
+ },
  "132 empress": {
   "lat": 42.9899145,
   "lng": -81.266069,
@@ -283,6 +298,11 @@
  "136 | mill street": {
   "lat": 42.9918748,
   "lng": -81.2552545,
+  "precision": "house"
+ },
+ "137 huron street": {
+  "lat": 43.0058638,
+  "lng": -81.2629352,
   "precision": "house"
  },
  "139 mill street": {
@@ -318,6 +338,11 @@
  "144 oxford street west": {
   "lat": 42.9905177,
   "lng": -81.2694424,
+  "precision": "house"
+ },
+ "144 paul st": {
+  "lat": 42.9881797,
+  "lng": -81.2657469,
   "precision": "house"
  },
  "144 victoria": null,
@@ -806,6 +831,11 @@
   "lng": -81.2534046,
   "precision": "house"
  },
+ "23 barrington avenue": {
+  "lat": 42.9876916,
+  "lng": -81.2645151,
+  "precision": "house"
+ },
  "23 mcdonald ave.": {
   "lat": 42.9942943,
   "lng": -81.2680231,
@@ -879,6 +909,11 @@
  "250 cheapside": {
   "lat": 43.0019518,
   "lng": -81.255901,
+  "precision": "house"
+ },
+ "255 regent st.": {
+  "lat": 43.0061222,
+  "lng": -81.2568896,
   "precision": "house"
  },
  "255 sydenham st": {
@@ -982,6 +1017,11 @@
  "300 princess ave": {
   "lat": 42.9894795,
   "lng": -81.2456488,
+  "precision": "house"
+ },
+ "300 steele st": {
+  "lat": 43.010248,
+  "lng": -81.255264,
   "precision": "house"
  },
  "302 wharncliffe": {
@@ -1102,6 +1142,11 @@
  "36 essex street, london on, n6g 1b2": {
   "lat": 42.9949177,
   "lng": -81.268645,
+  "precision": "house"
+ },
+ "375 wharncliffe rd n": {
+  "lat": 42.9970597,
+  "lng": -81.2672969,
   "precision": "house"
  },
  "379 wharncliffe": {
@@ -1394,9 +1439,19 @@
   "lng": -81.2611964,
   "precision": "house"
  },
+ "70 sunnyside dr": {
+  "lat": 43.023039,
+  "lng": -81.27649,
+  "precision": "house"
+ },
  "70 woodward ave": {
   "lat": 42.9861656,
   "lng": -81.2698121,
+  "precision": "house"
+ },
+ "703 windermere road": {
+  "lat": 43.0220205,
+  "lng": -81.2524918,
   "precision": "house"
  },
  "718 talbot": {
@@ -1607,6 +1662,11 @@
   "lng": -81.270681,
   "precision": "house"
  },
+ "98 paperbirch crescent": {
+  "lat": 42.9942264,
+  "lng": -81.2953236,
+  "precision": "house"
+ },
  "990 medway park dr": {
   "lat": 43.0188354,
   "lng": -81.3228365,
@@ -1624,7 +1684,9 @@
   "lng": -81.2589092,
   "precision": "street"
  },
+ "castlegrove boulevard & rollscourt gardens": null,
  "castlegrove pl & castlegrove blvd": null,
+ "castlegrove place & castlegrove boulevard": null,
  "colborne st & grosvenor st": null,
  "colborne st & oxford st east": null,
  "empress ave & wharncliffe rd n": null,
