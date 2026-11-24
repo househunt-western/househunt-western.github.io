@@ -209,6 +209,11 @@
   "lng": -81.263258,
   "precision": "house"
  },
+ "1208 richmond street": {
+  "lat": 43.011652,
+  "lng": -81.263792,
+  "precision": "house"
+ },
  "121 wharncliffe rd n": {
   "lat": 42.9865216,
   "lng": -81.2627556,
@@ -579,7 +584,17 @@
   "lng": -81.255883,
   "precision": "house"
  },
+ "179 john st": {
+  "lat": 42.9913058,
+  "lng": -81.2528414,
+  "precision": "house"
+ },
  "18 kenneth ave": null,
+ "18 wharncliffe road south": {
+  "lat": 42.9790708,
+  "lng": -81.2622325,
+  "precision": "house"
+ },
  "181 st. george street": {
   "lat": 42.9957615,
   "lng": -81.2559747,
@@ -1359,6 +1374,11 @@
   "lng": -81.2458828,
   "precision": "house"
  },
+ "619 talbot street": {
+  "lat": 42.9895719,
+  "lng": -81.2553096,
+  "precision": "house"
+ },
  "64 charles street": {
   "lat": 42.9846232,
   "lng": -81.2666412,
@@ -1407,6 +1427,11 @@
  "666 talbot st": {
   "lat": 42.9908972,
   "lng": -81.2557265,
+  "precision": "house"
+ },
+ "670 oxford st e": {
+  "lat": 43.001322,
+  "lng": -81.23372,
   "precision": "house"
  },
  "670 talbot st": {
@@ -1620,6 +1645,11 @@
  "925": {
   "lat": 42.9779534,
   "lng": -82.3754597,
+  "precision": "house"
+ },
+ "934 western road": {
+  "lat": 42.9958806,
+  "lng": -81.2681457,
   "precision": "house"
  },
  "95 edgar": {
