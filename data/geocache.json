@@ -24,6 +24,11 @@
   "lng": -81.2656806,
   "precision": "house"
  },
+ "101 wharncliffe rd n": {
+  "lat": 42.985361,
+  "lng": -81.2627134,
+  "precision": "house"
+ },
  "103 paul street": {
   "lat": 42.9888617,
   "lng": -81.264044,
@@ -229,6 +234,11 @@
   "lng": -81.2636402,
   "precision": "house"
  },
+ "124 albert street": {
+  "lat": 42.9884842,
+  "lng": -81.2540259,
+  "precision": "house"
+ },
  "125 mill st.": {
   "lat": 42.9915385,
   "lng": -81.2557806,
@@ -350,6 +360,11 @@
   "lng": -81.2657469,
   "precision": "house"
  },
+ "144 paul street": {
+  "lat": 42.9881797,
+  "lng": -81.2657469,
+  "precision": "house"
+ },
  "144 victoria": null,
  "145 empress ave": {
   "lat": 42.9897898,
@@ -401,6 +416,11 @@
  "150 mill street": {
   "lat": 42.9920308,
   "lng": -81.2547017,
+  "precision": "house"
+ },
+ "151 chesham avenue": {
+  "lat": 42.9946605,
+  "lng": -81.2894201,
   "precision": "house"
  },
  "1511 richmond st": {
@@ -532,6 +552,11 @@
  "163 oxford st w": {
   "lat": 42.990307,
   "lng": -81.2711889,
+  "precision": "house"
+ },
+ "1640 hillside dr": {
+  "lat": 43.021317,
+  "lng": -81.285872,
   "precision": "house"
  },
  "165 cambridge": {
@@ -814,6 +839,11 @@
  "223 bernard ave.": {
   "lat": 43.011927,
   "lng": -81.2627068,
+  "precision": "house"
+ },
+ "223 st. george st": {
+  "lat": 42.9968289,
+  "lng": -81.2565261,
   "precision": "house"
  },
  "223 sunnyside dr": {
@@ -1217,6 +1247,11 @@
  "429 oxford": {
   "lat": 42.9866257,
   "lng": -81.2837043,
+  "precision": "house"
+ },
+ "439 oxford": {
+  "lat": 42.986429,
+  "lng": -81.2843752,
   "precision": "house"
  },
  "44 essex st": {
