@@ -74,6 +74,11 @@
   "lng": -81.257887,
   "precision": "house"
  },
+ "107 wharncliffe": {
+  "lat": 42.9857542,
+  "lng": -81.2627203,
+  "precision": "house"
+ },
  "1075 adelaide st north": {
   "lat": 43.0106769,
   "lng": -81.2425354,
@@ -300,6 +305,11 @@
   "lng": -81.2560347,
   "precision": "house"
  },
+ "133 paul street": {
+  "lat": 42.9884382,
+  "lng": -81.2655056,
+  "precision": "house"
+ },
  "133 st james street": {
   "lat": 42.9965049,
   "lng": -81.2578751,
@@ -400,6 +410,11 @@
  "148 ann street": {
   "lat": 42.9930182,
   "lng": -81.2559092,
+  "precision": "house"
+ },
+ "148 wharncliffe rd north": {
+  "lat": 42.987849,
+  "lng": -81.263186,
   "precision": "house"
  },
  "15 shavian": {
@@ -549,6 +564,11 @@
   "lng": -81.2709702,
   "precision": "house"
  },
+ "1624 louise boulevard": {
+  "lat": 43.020774,
+  "lng": -81.287529,
+  "precision": "house"
+ },
  "163 oxford st w": {
   "lat": 42.990307,
   "lng": -81.2711889,
@@ -584,6 +604,11 @@
   "lng": -81.2692023,
   "precision": "house"
  },
+ "169 wharncliffe road north": {
+  "lat": 42.9886051,
+  "lng": -81.2628969,
+  "precision": "house"
+ },
  "171 broughdale ave": {
   "lat": 43.007293,
   "lng": -81.26219,
@@ -597,6 +622,11 @@
  "173 cambridge street": {
   "lat": 42.9892285,
   "lng": -81.269372,
+  "precision": "house"
+ },
+ "174 cambridge street": {
+  "lat": 42.9890955,
+  "lng": -81.2691791,
   "precision": "house"
  },
  "174 john st": {
@@ -655,6 +685,11 @@
   "lng": -81.2699201,
   "precision": "house"
  },
+ "188 oxford st. e": {
+  "lat": 42.9951957,
+  "lng": -81.254656,
+  "precision": "house"
+ },
  "19 barrington ave": {
   "lat": 42.9877617,
   "lng": -81.2642876,
@@ -663,6 +698,11 @@
  "19 rollscourt gardens": {
   "lat": 42.9952086,
   "lng": -81.2911477,
+  "precision": "house"
+ },
+ "190 cambridge street": {
+  "lat": 42.9888551,
+  "lng": -81.270026,
   "precision": "house"
  },
  "190 cooper": {
@@ -763,6 +803,11 @@
  "202 rathnally street": {
   "lat": 42.9896179,
   "lng": -81.2664437,
+  "precision": "house"
+ },
+ "202 st james st": {
+  "lat": 42.9972999,
+  "lng": -81.2556698,
   "precision": "house"
  },
  "206 rathowen street": {
@@ -881,6 +926,11 @@
   "lng": -81.2645151,
   "precision": "house"
  },
+ "23 kensington ave": {
+  "lat": 42.9838855,
+  "lng": -81.2615122,
+  "precision": "house"
+ },
  "23 mcdonald ave.": {
   "lat": 42.9942943,
   "lng": -81.2680231,
@@ -976,6 +1026,11 @@
   "lng": -81.257149,
   "precision": "house"
  },
+ "257 piccadilly": {
+  "lat": 42.9947716,
+  "lng": -81.2511268,
+  "precision": "house"
+ },
  "257 sydenham st": {
   "lat": 42.9969403,
   "lng": -81.2520376,
@@ -1027,6 +1082,11 @@
   "lat": 43.0093087,
   "lng": -81.2565511,
   "precision": "house"
+ },
+ "289 fleming drive": {
+  "lat": 43.0173787,
+  "lng": -81.1950661,
+  "precision": "street"
  },
  "289 pall mall street": {
   "lat": 42.9930597,
@@ -1114,6 +1174,11 @@
   "lng": -81.2660141,
   "precision": "house"
  },
+ "318 wharncliffe rd n": {
+  "lat": 42.9947811,
+  "lng": -81.266524,
+  "precision": "house"
+ },
  "325 wharncliffe rd n": {
   "lat": 42.9949551,
   "lng": -81.2662327,
@@ -1189,6 +1254,11 @@
   "lng": -81.268645,
   "precision": "house"
  },
+ "373 wharncliffe": {
+  "lat": 42.9647466,
+  "lng": -81.261608,
+  "precision": "house"
+ },
  "375 wharncliffe rd n": {
   "lat": 42.9970597,
   "lng": -81.2672969,
@@ -1208,6 +1278,11 @@
   "lat": 43.0211517,
   "lng": -81.2834053,
   "precision": "street"
+ },
+ "40 beaufort street": {
+  "lat": 42.9954486,
+  "lng": -81.2650326,
+  "precision": "house"
  },
  "40 summit": {
   "lat": 42.9922404,
@@ -1272,6 +1347,11 @@
  "46 essex": {
   "lat": 42.9946931,
   "lng": -81.2694076,
+  "precision": "house"
+ },
+ "47 saunby st.": {
+  "lat": 42.9938826,
+  "lng": -81.2649413,
   "precision": "house"
  },
  "48 woodward ave": {
@@ -1359,6 +1439,11 @@
   "lng": -81.2378837,
   "precision": "house"
  },
+ "57 beaufort st": {
+  "lat": 42.9952494,
+  "lng": -81.2663463,
+  "precision": "house"
+ },
  "57 gunn street": {
   "lat": 42.9951227,
   "lng": -81.2629993,
@@ -1367,6 +1452,11 @@
  "574 piccadilly st": {
   "lat": 42.9986324,
   "lng": -81.2380245,
+  "precision": "house"
+ },
+ "582 oxford street east": {
+  "lat": 43.0001757,
+  "lng": -81.2377343,
   "precision": "house"
  },
  "584 talbot": {
