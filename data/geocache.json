@@ -614,6 +614,11 @@
   "lng": -81.26219,
   "precision": "house"
  },
+ "171 john street": {
+  "lat": 42.9912087,
+  "lng": -81.2531865,
+  "precision": "house"
+ },
  "172 john st": {
   "lat": 42.9914268,
   "lng": -81.253078,
@@ -818,6 +823,11 @@
  "207 bernard avenue": {
   "lat": 43.011503,
   "lng": -81.263559,
+  "precision": "house"
+ },
+ "212 university cres.": {
+  "lat": 43.0095624,
+  "lng": -81.2600593,
   "precision": "house"
  },
  "214 rathowen": {
@@ -1429,6 +1439,11 @@
   "lng": -81.2701701,
   "precision": "house"
  },
+ "566 colborne st": {
+  "lat": 42.9918558,
+  "lng": -81.2422633,
+  "precision": "house"
+ },
  "566 talbot street": {
   "lat": 42.9879672,
   "lng": -81.2540953,
@@ -1502,6 +1517,11 @@
  "619 talbot street": {
   "lat": 42.9895719,
   "lng": -81.2553096,
+  "precision": "house"
+ },
+ "633 richmond st": {
+  "lat": 42.9916151,
+  "lng": -81.2513554,
   "precision": "house"
  },
  "64 charles street": {
@@ -1667,6 +1687,11 @@
  "787 richmond": {
   "lat": 42.9966169,
   "lng": -81.253966,
+  "precision": "house"
+ },
+ "789 waterloo street": {
+  "lat": 42.9980087,
+  "lng": -81.2489111,
   "precision": "house"
  },
  "795 richmond st": {
